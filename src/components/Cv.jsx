@@ -1,19 +1,34 @@
-import Name from './components/Name';
-import PersonalInfo from './components/PersonalInfo';
+/* eslint-disable react/prop-types */
 
-import './App.css'
-import MainSection from './components/MainSection';
+// import MainSection from './components/MainSection';
+import MainSection from './MainSection';
+import PersonalDetails from './PersonalDetails';
 
-function Cv () {
-
-  return (
-    <div className='cv'> 
-      < Name />
-      < PersonalInfo />
-      <hr />
-      < MainSection />
-    </div>
-  )
+function Cv({
+    nameInput,
+    emailInput,
+    phoneInput,
+    addressInput,
+    titleInput,
+    profileInput,
+    skills,
+}) {
+    return (
+        <div className='cv'>
+            <PersonalDetails
+                nameInput={nameInput}
+                emailInput={emailInput}
+                phoneInput={phoneInput}
+                addressInput={addressInput}
+                titleInput={titleInput}
+                profileInput={profileInput}
+            />
+            <hr />
+            <MainSection
+                skills={skills}
+            />
+        </div>
+    );
 }
 
-export default Cv
+export default Cv;

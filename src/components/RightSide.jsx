@@ -1,11 +1,12 @@
+/* eslint-disable react/prop-types */
 import References from "./References"
 import Skills from "./Skills"
 
 
-export default function RightSide() {
+export default function RightSide({skills}) {
     return(
         <div className="rightSide">
-            <Skills />
+            <Skills skills={skills} />
             <References />
         </div>
     )

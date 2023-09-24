@@ -25,10 +25,34 @@ body {
 }
 
 .app {
+  display: flex;
+  padding: 80px 20px;
+  /* justify-content: space-between; */
+  gap: 20px;
+}
+
+.cv {
   background-color: rgb(255, 255, 255);
-  margin: 80px 60px;
-  border-radius: 5px;
+  /* margin: 80px 20px; */
   padding: 20px;
+  flex-basis: 100px;
+  flex-grow: 3;
+}
+
+.formSection {
+  display: fled;
+  flex-direction: column;
+  flex-basis: 100px;
+  flex-grow: 1;
+}
+
+.form {
+  background-color: rgb(255, 255, 255);
+  margin-bottom: 20px;
+  border-radius: 20px;
+  padding: 20px;
+  /* flex-basis: 100px;
+  flex-grow: 1; */
 }
 
 .name {
@@ -127,9 +151,48 @@ ul {
   font-weight: bold;
 }
 
-/* hr {
-  border-left: 20px;
-  border-right: 1px;
-  border-bottom: 1px;
-  border-top: 1px;
+.inputComponent {
+  margin-top: 5px;
+}
+
+input:focus {
+  outline: none;
+  border: 2px solid rgb(25, 51, 84);
+}
+
+textarea:focus {
+  outline: none;
+  border: 2px solid rgb(25, 51, 84);
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 5px 0px;
+  background-color: rgb(243, 244, 246);
+  border: none;
+  resize: none;
+}
+
+.label {
+  font-size: 1.1rem;
+}
+
+.button {
+  padding: 10px;
+  color: white;
+  background-color: rgb(25, 51, 84);
+  border: none;
+  border-radius: 5px;
+}
+
+.button:hover {
+  cursor: pointer;
+  background-color: rgb(39, 77, 128);
+}
+
+/* .skillsForm {
+  display: flex;
+
 } */

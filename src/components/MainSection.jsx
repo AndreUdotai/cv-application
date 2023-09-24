@@ -3,11 +3,12 @@ import LeftSide from "./leftSide";
 import '../App.css';
 
 
-export default function MainSection() {
+// eslint-disable-next-line react/prop-types
+export default function MainSection({skills}) {
     return (
         <div className="mainSection">
             < LeftSide />
-            < RightSide />
+            < RightSide skills={skills} />
         </div>
     )
 }

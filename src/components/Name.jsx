@@ -1,8 +1,9 @@
 import '../App.css';
 
 
-export default function Name(){
+// eslint-disable-next-line react/prop-types
+export default function Name({nameInput}){
     return (
-        <h1 className="name">Andre Udotai</h1>
+        <h1 className="name">{nameInput ? nameInput : 'Andre Udotai'}</h1>
     )
 }
