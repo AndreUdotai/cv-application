@@ -1,6 +1,8 @@
+import '../App.css';
+
 
 export default function Name(){
     return (
-        <h1>Andre <br /> Udotai</h1>
+        <h1 className="name">Andre Udotai</h1>
     )
 }

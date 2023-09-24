@@ -1,7 +1,7 @@
 
 function WorkExperience() {
     return (
-        <>
+        <div className="workExperience">
             <h4>Project Manager at Digital Community</h4>
             <p>04/03/2019 - 03/03/2022</p>
             <ul>
@@ -11,7 +11,7 @@ function WorkExperience() {
                 <li>conducted through neuroligical assessemnts</li>
                 <li>conducted through neuroligical assessemnts</li>
             </ul>
-        </>
+        </div>
     )
 }
 

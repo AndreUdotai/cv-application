@@ -1,19 +1,17 @@
 // import { useState } from 'react'
 
-import Name from './components/Name';
-import PersonalInfo from './components/PersonalInfo';
-import LeftSide from './components/leftSide';
-
 import './App.css'
+import MainSection from './components/MainSection';
+import PersonalDetails from './components/PersonalDetails';
 
 function App() {
 
   return (
-    <>
-      < Name />
-      < PersonalInfo />
-      < LeftSide />
-    </>
+    <div className='app'>
+      < PersonalDetails />
+      <hr />
+      < MainSection />
+    </div>
   )
 }
 
