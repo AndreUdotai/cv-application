@@ -1,12 +1,12 @@
-
 /* eslint-disable react/prop-types */
 
-function Input({ label, inputValue, handleInputChange }) {
+function Input({ label, inputValue, handleInputChange, name }) {
     return (
         <div className='inputComponent'>
             <label className='label'>{label}</label>
             <input
                 type='text'
+                name={name}
                 className='input'
                 value={inputValue}
                 onChange={(event) => handleInputChange(event.target.value)}
@@ -33,9 +33,7 @@ function TextArea({ label, inputValue, handleInputChange }) {
 function Button({ name, handleAdd }) {
     return (
         <div>
-            <button 
-                className='button'
-                onClick={handleAdd}>
+            <button className='button' onClick={handleAdd}>
                 {name}
             </button>
         </div>
@@ -137,16 +135,52 @@ function Skills({ skills, skillsInput, handleAddSkill, handleSkillsInput }) {
                 <Button
                     name={'Add'}
                     handleAdd={(e) => handleAddSkill(e, skillsInput)}
-                    
                 />
             </div>
             <ul>
-                    {
-                        skills.map(item => 
-                            <li key={item.id}>{item.skill}</li>
-                        )
-                    }
-                </ul>
+                {skills.map((item) => (
+                    <li key={item.id}>{item.skill}</li>
+                ))}
+            </ul>
+        </div>
+    );
+}
+
+function References({
+    referenceProfile,
+    references,
+    handleAddReference,
+    handleReferenceInput,
+}) {
+    return (
+        <div className='form'>
+            <h2>References</h2>
+            <div className='referencesForm'>
+                <Input 
+                    label={'Name, Institution'} 
+                    name={'name'} 
+                    handleInputChange={handleReferenceInput}
+                />
+                <Input 
+                    label={'Email'} 
+                    name={'email'} 
+                    handleInputChange={handleReferenceInput}
+                />
+                <Input 
+                    label={'Phone number'} 
+                    name={'phone'}
+                    handleInputChange={handleReferenceInput}
+                />
+                <Button
+                    name={'Add'}
+                    handleAdd={(e) => handleAddReference(e, referenceProfile)}
+                />
+            </div>
+            <ul>
+                {references.map((item) => (
+                    <li key={item.id}>{item.name}</li>
+                ))}
+            </ul>
         </div>
     );
 }
@@ -160,6 +194,8 @@ export default function Form({
     profileInput,
     skills,
     skillsInput,
+    referenceProfile,
+    references,
     handleInputChange,
     handleEmailInput,
     handlePhoneInput,
@@ -168,6 +204,8 @@ export default function Form({
     handleProfileInput,
     handleAddSkill,
     handleSkillsInput,
+    handleAddReference,
+    handleReferenceInput,
 }) {
     return (
         <div className='formSection'>
@@ -192,6 +230,12 @@ export default function Form({
                 skillsInput={skillsInput}
                 handleAddSkill={handleAddSkill}
                 handleSkillsInput={handleSkillsInput}
+            />
+            <References
+                referenceProfile={referenceProfile}
+                references={references}
+                handleAddReference={handleAddReference}
+                handleReferenceInput={handleReferenceInput}
             />
         </div>
     );

@@ -192,7 +192,18 @@ textarea:focus {
   background-color: rgb(39, 77, 128);
 }
 
-/* .skillsForm {
+.skillsForm {
   display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
-} */
+.skillsForm input {
+  margin-top: 0px;
+  width: 100%;
+  flex: 1;
+}
+
+.skillsForm button {
+  flex: 0;
+}
