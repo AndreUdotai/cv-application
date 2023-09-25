@@ -12,6 +12,8 @@ let educationArray = [];
 let workHistory = [];
 
 function App() {
+    // const[open, setOpen] = useState(false);
+
     const [nameInput, setNameInput] = useState('');
     const [emailInput, setEmailInput] = useState('');
     const [phoneInput, setPhoneInput] = useState('');
@@ -38,7 +40,6 @@ function App() {
         setProfileInput(newValue);
     };
 
-    // const [skills, setSkills] = useState(skillsArray);
     const [skillsInput, setSkillsInput] = useState('');
 
     const handleSkillsInput = (newSkill) => {
