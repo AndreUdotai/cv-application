@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { useState } from 'react';
 
 function Input({ label, inputValue, handleInputChange, name }) {
     return (
@@ -53,55 +54,58 @@ function ListDisplay({ list }) {
 }
 
 function PersonalDetails({
-    formTitle,
-    nameInput = { nameInput },
-    emailInput = { emailInput },
-    phoneInput = { phoneInput },
-    addressInput = { addressInput },
-    titleInput = { titleInput },
-    profileInput = { profileInput },
-    handleInputChange = { handleInputChange },
-    handleEmailInput = { handleEmailInput },
-    handlePhoneInput = { handlePhoneInput },
-    handleAddressInput = { handleAddressInput },
-    handleTitleInput = { handleTitleInput },
-    handleProfileInput = { handleProfileInput },
+    nameInput,
+    emailInput,
+    phoneInput,
+    addressInput,
+    titleInput,
+    profileInput,
+    handleInputChange,
+    handleEmailInput,
+    handlePhoneInput,
+    handleAddressInput,
+    handleTitleInput,
+    handleProfileInput,
+    isActive,
+    onToggle,
 }) {
     return (
         <div className='form'>
-            <h2>{formTitle}</h2>
-            <form>
-                <Input
-                    label={'Full name'}
-                    inputValue={nameInput}
-                    handleInputChange={handleInputChange}
-                />
-                <Input
-                    label={'Email'}
-                    inputValue={emailInput}
-                    handleInputChange={handleEmailInput}
-                />
-                <Input
-                    label={'Phone number'}
-                    inputValue={phoneInput}
-                    handleInputChange={handlePhoneInput}
-                />
-                <Input
-                    label={'Address'}
-                    inputValue={addressInput}
-                    handleInputChange={handleAddressInput}
-                />
-                <Input
-                    label={'Professional title'}
-                    inputValue={titleInput}
-                    handleInputChange={handleTitleInput}
-                />
-                <TextArea
-                    label={'Profile'}
-                    inputValue={profileInput}
-                    handleInputChange={handleProfileInput}
-                />
-            </form>
+            <h2 onClick={onToggle}>Personal Details</h2>
+            {isActive && (
+                <form>
+                    <Input
+                        label={'Full name'}
+                        inputValue={nameInput}
+                        handleInputChange={handleInputChange}
+                    />
+                    <Input
+                        label={'Email'}
+                        inputValue={emailInput}
+                        handleInputChange={handleEmailInput}
+                    />
+                    <Input
+                        label={'Phone number'}
+                        inputValue={phoneInput}
+                        handleInputChange={handlePhoneInput}
+                    />
+                    <Input
+                        label={'Address'}
+                        inputValue={addressInput}
+                        handleInputChange={handleAddressInput}
+                    />
+                    <Input
+                        label={'Professional title'}
+                        inputValue={titleInput}
+                        handleInputChange={handleTitleInput}
+                    />
+                    <TextArea
+                        label={'Profile'}
+                        inputValue={profileInput}
+                        handleInputChange={handleProfileInput}
+                    />
+                </form>
+            )}
         </div>
     );
 }
@@ -121,51 +125,59 @@ function EmploymentHistory({
     handleWorkEnd,
     handleWorkAchievement,
     handleAddWork,
+    isActive,
+    onToggle,
 }) {
     return (
         <div className='form'>
-            <h2>Employment History</h2>
-            <form>
-                <Input
-                    label={'Position'}
-                    inputValue={workPosition}
-                    handleInputChange={handleWorkPosition}
-                />
-                <Input
-                    label={'Name of Company'}
-                    inputValue={workName}
-                    handleInputChange={handleWorkName}
-                />
-                <Input
-                    label={'Location'}
-                    inputValue={workLocation}
-                    handleInputChange={handleWorkLocation}
-                />
-                <Input
-                    label={'Start date'}
-                    inputValue={workStart}
-                    handleInputChange={handleWorkStart}
-                />
-                <Input
-                    label={'End date'}
-                    inputValue={workEnd}
-                    handleInputChange={handleWorkEnd}
-                />
-                <Input
-                    label={'Achievements'}
-                    inputValue={workAchievement}
-                    handleInputChange={handleWorkAchievement}
-                />
-                <Button name={'Add'} handleAdd={(e) => handleAddWork(e)} />
-            </form>
-            <div className="listDisplay">
-                <ul>
-                    {workHistory.map((item) => (
-                        <li key={item.id}>{item.position}</li>
-                    ))}
-                </ul>
-            </div>
-
+            <h2 onClick={onToggle}>Employment History</h2>
+            {isActive && (
+                <>
+                    <form>
+                        <Input
+                            label={'Position'}
+                            inputValue={workPosition}
+                            handleInputChange={handleWorkPosition}
+                        />
+                        <Input
+                            label={'Name of Company'}
+                            inputValue={workName}
+                            handleInputChange={handleWorkName}
+                        />
+                        <Input
+                            label={'Location'}
+                            inputValue={workLocation}
+                            handleInputChange={handleWorkLocation}
+                        />
+                        <Input
+                            label={'Start date'}
+                            inputValue={workStart}
+                            handleInputChange={handleWorkStart}
+                        />
+                        <Input
+                            label={'End date'}
+                            inputValue={workEnd}
+                            handleInputChange={handleWorkEnd}
+                        />
+                        <Input
+                            label={'Achievements'}
+                            inputValue={workAchievement}
+                            handleInputChange={handleWorkAchievement}
+                        />
+                        <Button
+                            name={'Add'}
+                            handleAdd={(e) => handleAddWork(e)}
+                        />
+                    </form>
+                    <div className='listDisplay'>
+                        <ul>
+                            {workHistory.map((item) => (
+                                <li key={item.id}>{item.position}</li>
+                            ))}
+                        </ul>
+                    </div>
+                </>
+            )}
         </div>
     );
 }
@@ -185,67 +197,89 @@ function Education({
     handleStartInput,
     handleEndInput,
     handleAddEducation,
+    isActive,
+    onToggle,
 }) {
     return (
         <div className='form'>
-            <h2>Education</h2>
-            <div className='educationForm'>
-                <Input
-                    label={'Degree'}
-                    inputValue={educationDegree}
-                    handleInputChange={handleDegreeInput}
-                />
-                <Input
-                    label={'Department'}
-                    inputValue={educationDepartment}
-                    handleInputChange={handleDepartmentInput}
-                />
-                <Input
-                    label={'School'}
-                    inputValue={educationSchool}
-                    handleInputChange={handleSchoolInput}
-                />
-                <Input
-                    label={'Location'}
-                    inputValue={educationLocation}
-                    handleInputChange={handleLocationInput}
-                />
-                <Input
-                    label={'Start date'}
-                    inputValue={educationStart}
-                    handleInputChange={handleStartInput}
-                />
-                <Input
-                    label={'End date'}
-                    inputValue={educationEnd}
-                    handleInputChange={handleEndInput}
-                />
-                <Button name={'Add'} handleAdd={(e) => handleAddEducation(e)} />
-            </div>
-            <div className='listDisplay'>
-                <ul>
-                    {educationArray.map((item) => (
-                        <li key={item.id}>{item.degree}</li>
-                    ))}
-                </ul>
-            </div>
+            <h2 onClick={onToggle}>Education</h2>
+            {isActive && (
+                <>
+                    <div className='educationForm'>
+                        <Input
+                            label={'Degree'}
+                            inputValue={educationDegree}
+                            handleInputChange={handleDegreeInput}
+                        />
+                        <Input
+                            label={'Department'}
+                            inputValue={educationDepartment}
+                            handleInputChange={handleDepartmentInput}
+                        />
+                        <Input
+                            label={'School'}
+                            inputValue={educationSchool}
+                            handleInputChange={handleSchoolInput}
+                        />
+                        <Input
+                            label={'Location'}
+                            inputValue={educationLocation}
+                            handleInputChange={handleLocationInput}
+                        />
+                        <Input
+                            label={'Start date'}
+                            inputValue={educationStart}
+                            handleInputChange={handleStartInput}
+                        />
+                        <Input
+                            label={'End date'}
+                            inputValue={educationEnd}
+                            handleInputChange={handleEndInput}
+                        />
+                        <Button
+                            name={'Add'}
+                            handleAdd={(e) => handleAddEducation(e)}
+                        />
+                    </div>
+                    <div className='listDisplay'>
+                        <ul>
+                            {educationArray.map((item) => (
+                                <li key={item.id}>{item.degree}</li>
+                            ))}
+                        </ul>
+                    </div>
+                </>
+            )}
         </div>
     );
 }
 
-
-function Skills({ skills, skillsInput, handleAddSkill, handleSkillsInput }) {
+function Skills({
+    skills,
+    skillsInput,
+    handleAddSkill,
+    handleSkillsInput,
+    isActive,
+    onToggle,
+}) {
     return (
         <div className='form'>
-            <h2>Skills</h2>
-            <div className='skillsForm'>
-                <Input
-                    inputValue={skillsInput}
-                    handleInputChange={handleSkillsInput}
-                />
-                <Button name={'Add'} handleAdd={(e) => handleAddSkill(e)} />
-            </div>
-            <ListDisplay list={skills} />
+            <h2 onClick={onToggle}>Skills</h2>
+            {isActive && (
+                <>
+                    <div className='skillsForm'>
+                        <Input
+                            inputValue={skillsInput}
+                            handleInputChange={handleSkillsInput}
+                        />
+                        <Button
+                            name={'Add'}
+                            handleAdd={(e) => handleAddSkill(e)}
+                        />
+                    </div>
+                    <ListDisplay list={skills} />
+                </>
+            )}
         </div>
     );
 }
@@ -261,34 +295,43 @@ function References({
     referenceEmailInput,
     referencePhoneInput,
     handleAddReference,
+    isActive,
+    onToggle,
 }) {
     return (
         <div className='form'>
-            <h2>References</h2>
-            <div className='referencesForm'>
-                <Input
-                    label={'Name'}
-                    inputValue={referenceName}
-                    handleInputChange={referenceNameInput}
-                />
-                <Input
-                    label={'Institution'}
-                    inputValue={referenceInstitution}
-                    handleInputChange={referenceInstitutionInput}
-                />
-                <Input
-                    label={'Email'}
-                    inputValue={referenceEmail}
-                    handleInputChange={referenceEmailInput}
-                />
-                <Input
-                    label={'Phone number'}
-                    inputValue={referencePhone}
-                    handleInputChange={referencePhoneInput}
-                />
-                <Button name={'Add'} handleAdd={(e) => handleAddReference(e)} />
-            </div>
-            <ListDisplay list={references} />
+            <h2 onClick={onToggle}>References</h2>
+            {isActive && (
+                <>
+                    <div className='referencesForm'>
+                        <Input
+                            label={'Name'}
+                            inputValue={referenceName}
+                            handleInputChange={referenceNameInput}
+                        />
+                        <Input
+                            label={'Institution'}
+                            inputValue={referenceInstitution}
+                            handleInputChange={referenceInstitutionInput}
+                        />
+                        <Input
+                            label={'Email'}
+                            inputValue={referenceEmail}
+                            handleInputChange={referenceEmailInput}
+                        />
+                        <Input
+                            label={'Phone number'}
+                            inputValue={referencePhone}
+                            handleInputChange={referencePhoneInput}
+                        />
+                        <Button
+                            name={'Add'}
+                            handleAdd={(e) => handleAddReference(e)}
+                        />
+                    </div>
+                    <ListDisplay list={references} />
+                </>
+            )}
         </div>
     );
 }
@@ -349,10 +392,15 @@ export default function Form({
     handleWorkAchievement,
     handleAddWork,
 }) {
+    const [isActive1, setIsActive1] = useState(false);
+    const [isActive2, setIsActive2] = useState(false);
+    const [isActive3, setIsActive3] = useState(false);
+    const [isActive4, setIsActive4] = useState(false);
+    const [isActive5, setIsActive5] = useState(false);
+
     return (
         <div className='formSection'>
             <PersonalDetails
-                formTitle={'Personal Details'}
                 nameInput={nameInput}
                 emailInput={emailInput}
                 phoneInput={phoneInput}
@@ -365,6 +413,8 @@ export default function Form({
                 handleAddressInput={handleAddressInput}
                 handleTitleInput={handleTitleInput}
                 handleProfileInput={handleProfileInput}
+                isActive={isActive1}
+                onToggle={() => setIsActive1(!isActive1)}
             />
             <EmploymentHistory
                 workPosition={workPosition}
@@ -381,6 +431,8 @@ export default function Form({
                 handleWorkEnd={handleWorkEnd}
                 handleWorkAchievement={handleWorkAchievement}
                 handleAddWork={handleAddWork}
+                isActive={isActive2}
+                onToggle={() => setIsActive2(!isActive2)}
             />
             <Education
                 educationDegree={educationDegree}
@@ -397,12 +449,16 @@ export default function Form({
                 handleStartInput={handleStartInput}
                 handleEndInput={handleEndInput}
                 handleAddEducation={handleAddEducation}
+                isActive={isActive3}
+                onToggle={() => setIsActive3(!isActive3)}
             />
             <Skills
                 skills={skills}
                 skillsInput={skillsInput}
                 handleAddSkill={handleAddSkill}
                 handleSkillsInput={handleSkillsInput}
+                isActive={isActive4}
+                onToggle={() => setIsActive4(!isActive4)}
             />
             <References
                 referenceName={referenceName}
@@ -415,6 +471,8 @@ export default function Form({
                 referenceEmailInput={referenceEmailInput}
                 referencePhoneInput={referencePhoneInput}
                 handleAddReference={handleAddReference}
+                isActive={isActive5}
+                onToggle={() => setIsActive5(!isActive5)}
             />
         </div>
     );
