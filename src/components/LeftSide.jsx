@@ -2,10 +2,10 @@
 import WorkHistory from "./WorkHistory";
 import Education from "./Education";
 
-export default function LeftSide({education}) {
+export default function LeftSide({education, workHistory}) {
     return (
         <div className="leftSide">
-            <WorkHistory />
+            <WorkHistory workHistory={workHistory} />
             <Education education={education} /> 
         </div>
     )

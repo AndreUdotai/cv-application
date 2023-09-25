@@ -9,6 +9,7 @@ import Form from './components/Form';
 const skillsArray = [];
 const referencesArray = [];
 let educationArray = [];
+let workHistory = [];
 
 function App() {
     const [nameInput, setNameInput] = useState('');
@@ -133,6 +134,55 @@ function App() {
         setEducationEnd('')
     };
 
+    const [workPosition, setWorkPosition] = useState('');
+    const [workName, setWorkName] = useState('');
+    const [workLocation, setWorkLocation] = useState('');
+    const [workStart, setWorkStart] = useState('');
+    const [workEnd, setWorkEnd] = useState('');
+    const [workAchievement, setWorkAchievement] = useState('');
+
+    const handleWorkPosition = (work) => {
+        setWorkPosition(work)
+    };
+
+    const handleWorkName = (department) => {
+        setWorkName(department)
+    }
+
+    const handleWorkLocation = (school) => {
+        setWorkLocation(school)
+    };
+
+    const handleWorkStart = (location) => {
+        setWorkStart(location)
+    };
+
+    const handleWorkEnd = (start) => {
+        setWorkEnd(start)
+    }
+
+    const handleWorkAchievement = (end) => {
+        setWorkAchievement(end)
+    }
+
+    const handleAddWork = (e) => {
+        e.preventDefault();
+        workHistory = [...workHistory, {
+            id: uuidv4(),
+            position: workPosition,
+            name: workName,
+            location: workLocation,
+            start: workStart,
+            end: workEnd,
+            achievement: workAchievement,
+        }]
+        setWorkPosition('');
+        setWorkName('');
+        setWorkLocation('')
+        setWorkStart('');
+        setWorkEnd('');
+        setWorkAchievement('');
+    };
 
     return (
         <div className='app'>
@@ -175,6 +225,20 @@ function App() {
                 handleStartInput={handleStartInput}
                 handleEndInput={handleEndInput}
                 handleAddEducation={handleAddEducation}
+                workPosition={workPosition}
+                workName={workName}
+                workLocation={workLocation}
+                workStart={workStart}
+                workEnd={workEnd}
+                workAchievement={workAchievement}
+                workHistory={workHistory}
+                handleWorkPosition={handleWorkPosition}
+                handleWorkName={handleWorkName}
+                handleWorkLocation={handleWorkLocation}
+                handleWorkStart={handleWorkStart}
+                handleWorkEnd={handleWorkEnd}
+                handleWorkAchievement={handleWorkAchievement}
+                handleAddWork={handleAddWork}
             />
             <Cv
                 nameInput={nameInput}
@@ -186,6 +250,7 @@ function App() {
                 skills={skills}
                 references={references}
                 education={educationArray}
+                workHistory={workHistory}
             />
         </div>
     );

@@ -94,31 +94,63 @@ function PersonalDetails({
     );
 }
 
-function EmploymentHistory() {
+function EmploymentHistory({
+    workPosition,
+    workName,
+    workLocation,
+    workStart,
+    workEnd,
+    workAchievement,
+    workHistory,
+    handleWorkPosition,
+    handleWorkName,
+    handleWorkLocation,
+    handleWorkStart,
+    handleWorkEnd,
+    handleWorkAchievement,
+    handleAddWork,
+}) {
     return (
         <div className='form'>
             <h2>Employment History</h2>
             <form>
                 <Input
-                    label={'Position, Company name, Location'}
-                    // handleInputChange={handleInputChange}
+                    label={'Position'}
+                    inputValue={workPosition}
+                    handleInputChange={handleWorkPosition}
+                />
+                <Input
+                    label={'Name of Company'}
+                    inputValue={workName}
+                    handleInputChange={handleWorkName}
+                />
+                <Input
+                    label={'Location'}
+                    inputValue={workLocation}
+                    handleInputChange={handleWorkLocation}
                 />
                 <Input
                     label={'Start date'}
-                    // inputValue={}
-                    // handleInputChange={handleEmailInput}
+                    inputValue={workStart}
+                    handleInputChange={handleWorkStart}
                 />
                 <Input
                     label={'End date'}
-                    // inputValue={}
-                    // handleInputChange={handlePhoneInput}
+                    inputValue={workEnd}
+                    handleInputChange={handleWorkEnd}
                 />
                 <Input
                     label={'Achievements'}
-                    // inputValue={}
-                    // handleInputChange={handleAddressInput}
+                    inputValue={workAchievement}
+                    handleInputChange={handleWorkAchievement}
                 />
+                <Button name={'Add'} handleAdd={(e) => handleAddWork(e)} />
             </form>
+            <ul>
+                {workHistory.map((item) => (
+                    <li key={item.id}>{item.position}</li>
+                ))}
+            </ul>
         </div>
     );
 }
@@ -283,6 +315,20 @@ export default function Form({
     handleStartInput,
     handleEndInput,
     handleAddEducation,
+    workPosition,
+    workName,
+    workLocation,
+    workStart,
+    workEnd,
+    workAchievement,
+    workHistory,
+    handleWorkPosition,
+    handleWorkName,
+    handleWorkLocation,
+    handleWorkStart,
+    handleWorkEnd,
+    handleWorkAchievement,
+    handleAddWork,
 }) {
     return (
         <div className='formSection'>
@@ -301,7 +347,22 @@ export default function Form({
                 handleTitleInput={handleTitleInput}
                 handleProfileInput={handleProfileInput}
             />
-            <EmploymentHistory />
+            <EmploymentHistory
+                workPosition={workPosition}
+                workName={workName}
+                workLocation={workLocation}
+                workStart={workStart}
+                workEnd={workEnd}
+                workAchievement={workAchievement}
+                workHistory={workHistory}
+                handleWorkPosition={handleWorkPosition}
+                handleWorkName={handleWorkName}
+                handleWorkLocation={handleWorkLocation}
+                handleWorkStart={handleWorkStart}
+                handleWorkEnd={handleWorkEnd}
+                handleWorkAchievement={handleWorkAchievement}
+                handleAddWork={handleAddWork}
+            />
             <Education
                 educationDegree={educationDegree}
                 educationDepartment={educationDepartment}

@@ -14,6 +14,7 @@ function Cv({
     skills,
     references,
     education,
+    workHistory,
 }) {
     return (
         <div className='cv'>
@@ -30,6 +31,7 @@ function Cv({
                 skills={skills}
                 references={references}
                 education={education}
+                workHistory={workHistory}
             />
         </div>
     );
