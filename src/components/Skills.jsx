@@ -7,7 +7,7 @@ export default function Skills({ skills }) {
             {skills.length > 0 ? (
                 <ul>
                     {skills.map((item) => (
-                        <li key={item.id}>{item.skill}</li>
+                        <li key={item.id}>{item.name}</li>
                     ))}
                 </ul>
             ) : (

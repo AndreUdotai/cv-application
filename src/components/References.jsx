@@ -8,7 +8,7 @@ export default function References({ references }) {
                 <ul>
                     {references.map((reference) => (
                         <li key={reference.id}>
-                            <p>{reference.name}</p>
+                            <p>{reference.name}, <br /> {reference.institution}</p>
                             <p>{reference.email}</p>
                             <p>{reference.phone}</p>
                         </li>

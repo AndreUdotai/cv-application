@@ -47,11 +47,12 @@ function App() {
 
     const handleAddSkill = (event) => {
         event.preventDefault();
-        setSkills([...skills, { id: uuidv4(), skill: skillsInput }]);
+        setSkills([...skills, { id: uuidv4(), name: skillsInput }]);
         setSkillsInput('');
     };
 
     const [referenceName, setReferenceName] = useState('');
+    const [referenceInstitution, setReferenceInstitution] = useState('');
     const [referenceEmail, setReferenceEmail] = useState('');
     const [referencePhone, setReferencePhone] = useState('');
     const [references, setReferences] = useState(referencesArray)
@@ -59,6 +60,10 @@ function App() {
     const referenceNameInput = (name) => {
         setReferenceName(name)
     };
+
+    const referenceInstitutionInput = (name) => {
+        setReferenceInstitution(name)
+    }
 
     const referenceEmailInput = (email) => {
         setReferenceEmail(email)
@@ -75,11 +80,13 @@ function App() {
             {
                 id: uuidv4(),
                 name: referenceName,
+                institution: referenceInstitution,
                 email: referenceEmail,
                 phone: referencePhone,
             },
         ]);
         setReferenceName('');
+        setReferenceInstitution('');
         setReferenceEmail('');
         setReferencePhone('');
     };
@@ -196,6 +203,7 @@ function App() {
                 skills={skills}
                 skillsInput={skillsInput}
                 referenceName={referenceName}
+                referenceInstitution={referenceInstitution}
                 referenceEmail={referenceEmail}
                 referencePhone={referencePhone}
                 references={references}
@@ -208,6 +216,7 @@ function App() {
                 handleAddSkill={handleAddSkill}
                 handleSkillsInput={handleSkillsInput}
                 referenceNameInput={referenceNameInput}
+                referenceInstitutionInput={referenceInstitutionInput}
                 referenceEmailInput={referenceEmailInput}
                 referencePhoneInput={referencePhoneInput}
                 handleAddReference={handleAddReference}

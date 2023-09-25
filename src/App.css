@@ -192,22 +192,12 @@ textarea:focus {
   background-color: rgb(39, 77, 128);
 }
 
-/* .skillsForm {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.listDisplay ul {
+  list-style-type: none;
 }
 
-.skillsForm input {
-  margin-top: 0px;
-  width: 100%;
-  flex: 1;
-} */
-
-/* .skillsForm button {
-  flex: 0;
-} */
-
-/* .school ul li {
-  margin-right: 0px;
-} */
+.listDisplay li {
+  margin-top: 4px;
+  padding: 8px 4px;
+  box-shadow: 1px 1px 6px rgb(211, 214, 220);
+}

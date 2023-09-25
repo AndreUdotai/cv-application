@@ -40,6 +40,18 @@ function Button({ name, handleAdd }) {
     );
 }
 
+function ListDisplay({ list }) {
+    return (
+        <div className='listDisplay'>
+            <ul>
+                {list.map((item) => (
+                    <li key={item.id}>{item.name}</li>
+                ))}
+            </ul>
+        </div>
+    );
+}
+
 function PersonalDetails({
     formTitle,
     nameInput = { nameInput },
@@ -146,11 +158,14 @@ function EmploymentHistory({
                 />
                 <Button name={'Add'} handleAdd={(e) => handleAddWork(e)} />
             </form>
-            <ul>
-                {workHistory.map((item) => (
-                    <li key={item.id}>{item.position}</li>
-                ))}
-            </ul>
+            <div className="listDisplay">
+                <ul>
+                    {workHistory.map((item) => (
+                        <li key={item.id}>{item.position}</li>
+                    ))}
+                </ul>
+            </div>
+
         </div>
     );
 }
@@ -207,14 +222,17 @@ function Education({
                 />
                 <Button name={'Add'} handleAdd={(e) => handleAddEducation(e)} />
             </div>
-            <ul>
-                {educationArray.map((item) => (
-                    <li key={item.id}>{item.degree}</li>
-                ))}
-            </ul>
+            <div className='listDisplay'>
+                <ul>
+                    {educationArray.map((item) => (
+                        <li key={item.id}>{item.degree}</li>
+                    ))}
+                </ul>
+            </div>
         </div>
     );
 }
+
 
 function Skills({ skills, skillsInput, handleAddSkill, handleSkillsInput }) {
     return (
@@ -227,21 +245,19 @@ function Skills({ skills, skillsInput, handleAddSkill, handleSkillsInput }) {
                 />
                 <Button name={'Add'} handleAdd={(e) => handleAddSkill(e)} />
             </div>
-            <ul>
-                {skills.map((item) => (
-                    <li key={item.id}>{item.skill}</li>
-                ))}
-            </ul>
+            <ListDisplay list={skills} />
         </div>
     );
 }
 
 function References({
     referenceName,
+    referenceInstitution,
     referenceEmail,
     referencePhone,
     references,
     referenceNameInput,
+    referenceInstitutionInput,
     referenceEmailInput,
     referencePhoneInput,
     handleAddReference,
@@ -251,9 +267,14 @@ function References({
             <h2>References</h2>
             <div className='referencesForm'>
                 <Input
-                    label={'Name, Institution'}
+                    label={'Name'}
                     inputValue={referenceName}
                     handleInputChange={referenceNameInput}
+                />
+                <Input
+                    label={'Institution'}
+                    inputValue={referenceInstitution}
+                    handleInputChange={referenceInstitutionInput}
                 />
                 <Input
                     label={'Email'}
@@ -267,11 +288,7 @@ function References({
                 />
                 <Button name={'Add'} handleAdd={(e) => handleAddReference(e)} />
             </div>
-            <ul>
-                {references.map((item) => (
-                    <li key={item.id}>{item.name}</li>
-                ))}
-            </ul>
+            <ListDisplay list={references} />
         </div>
     );
 }
@@ -286,6 +303,7 @@ export default function Form({
     skills,
     skillsInput,
     referenceName,
+    referenceInstitution,
     referenceEmail,
     referencePhone,
     references,
@@ -298,6 +316,7 @@ export default function Form({
     handleAddSkill,
     handleSkillsInput,
     referenceNameInput,
+    referenceInstitutionInput,
     referenceEmailInput,
     referencePhoneInput,
     handleAddReference,
@@ -387,10 +406,12 @@ export default function Form({
             />
             <References
                 referenceName={referenceName}
+                referenceInstitution={referenceInstitution}
                 referenceEmail={referenceEmail}
                 referencePhone={referencePhone}
                 references={references}
                 referenceNameInput={referenceNameInput}
+                referenceInstitutionInput={referenceInstitutionInput}
                 referenceEmailInput={referenceEmailInput}
                 referencePhoneInput={referencePhoneInput}
                 handleAddReference={handleAddReference}
