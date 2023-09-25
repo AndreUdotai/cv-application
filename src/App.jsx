@@ -6,7 +6,7 @@ import './App.css';
 import Cv from './components/Cv';
 import Form from './components/Form';
 
-const skillsArray = [];
+let skills = [];
 let references = [];
 let educationArray = [];
 let workHistory = [];
@@ -38,7 +38,7 @@ function App() {
         setProfileInput(newValue);
     };
 
-    const [skills, setSkills] = useState(skillsArray);
+    // const [skills, setSkills] = useState(skillsArray);
     const [skillsInput, setSkillsInput] = useState('');
 
     const handleSkillsInput = (newSkill) => {
@@ -47,7 +47,7 @@ function App() {
 
     const handleAddSkill = (event) => {
         event.preventDefault();
-        setSkills([...skills, { id: uuidv4(), name: skillsInput }]);
+        skills = [...skills, { id: uuidv4(), name: skillsInput }];
         setSkillsInput('');
     };
 
@@ -55,7 +55,6 @@ function App() {
     const [referenceInstitution, setReferenceInstitution] = useState('');
     const [referenceEmail, setReferenceEmail] = useState('');
     const [referencePhone, setReferencePhone] = useState('');
-    // const [references, setReferences] = useState(referencesArray)
 
     const referenceNameInput = (name) => {
         setReferenceName(name)
