@@ -17,6 +17,25 @@ function App() {
     const [titleInput, setTitleInput] = useState('');
     const [profileInput, setProfileInput] = useState('');
 
+    const handleInputChange = (newValue) => {
+        setNameInput(newValue);
+    };
+    const handleEmailInput = (newValue) => {
+        setEmailInput(newValue);
+    };
+    const handlePhoneInput = (newValue) => {
+        setPhoneInput(newValue);
+    };
+    const handleAddressInput = (newValue) => {
+        setAddressInput(newValue);
+    };
+    const handleTitleInput = (newValue) => {
+        setTitleInput(newValue);
+    };
+    const handleProfileInput = (newValue) => {
+        setProfileInput(newValue);
+    };
+
     const [skills, setSkills] = useState(skillsArray);
     const [skillsInput, setSkillsInput] = useState('');
 
@@ -24,63 +43,43 @@ function App() {
         setSkillsInput(newSkill);
     };
 
-    const handleAddSkill = (event, newSkill) => {
+    const handleAddSkill = (event) => {
         event.preventDefault();
-        setSkills([...skills, { id: uuidv4(), skill: newSkill }]);
+        setSkills([...skills, { id: uuidv4(), skill: skillsInput }]);
         setSkillsInput('');
     };
 
-    const [referenceProfile, setReferenceProfile] = useState({
-        name: '',
-        email: '',
-        phone: '',
-    });
+    const [referenceName, setReferenceName] = useState('');
+    const [referenceEmail, setReferenceEmail] = useState('');
+    const [referencePhone, setReferencePhone] = useState('');
+    const [references, setReferences] = useState(referencesArray)
 
-    const [references, setReferences] = useState(referencesArray);
-
-    const handleReferenceInput = (e) => {
-        const value = e.target.value;
-        setReferenceProfile({
-            ...referenceProfile,
-            [e.target.name]: value,
-        });
+    const referenceNameInput = (name) => {
+        setReferenceName(name)
     };
 
-    const handleAddReference = (e, newReference) => {
+    const referenceEmailInput = (email) => {
+        setReferenceEmail(email)
+    };
+
+    const referencePhoneInput = (phone) => {
+        setReferencePhone(phone)
+    };
+
+    const handleAddReference = (e) => {
         e.preventDefault();
         setReferences([
             ...references,
             {
                 id: uuidv4(),
-                name: newReference.name,
-                email: newReference.email,
-                phone: newReference.phone,
+                name: referenceName,
+                email: referenceEmail,
+                phone: referencePhone,
             },
         ]);
-    };
-
-    const handleInputChange = (newValue) => {
-        setNameInput(newValue);
-    };
-
-    const handleEmailInput = (newValue) => {
-        setEmailInput(newValue);
-    };
-
-    const handlePhoneInput = (newValue) => {
-        setPhoneInput(newValue);
-    };
-
-    const handleAddressInput = (newValue) => {
-        setAddressInput(newValue);
-    };
-
-    const handleTitleInput = (newValue) => {
-        setTitleInput(newValue);
-    };
-
-    const handleProfileInput = (newValue) => {
-        setProfileInput(newValue);
+        setReferenceName('');
+        setReferenceEmail('');
+        setReferencePhone('');
     };
 
     return (
@@ -94,7 +93,9 @@ function App() {
                 profileInput={profileInput}
                 skills={skills}
                 skillsInput={skillsInput}
-                referenceProfile={referenceProfile}
+                referenceName={referenceName}
+                referenceEmail={referenceEmail}
+                referencePhone={referencePhone}
                 references={references}
                 handleInputChange={handleInputChange}
                 handleEmailInput={handleEmailInput}
@@ -104,8 +105,10 @@ function App() {
                 handleProfileInput={handleProfileInput}
                 handleAddSkill={handleAddSkill}
                 handleSkillsInput={handleSkillsInput}
+                referenceNameInput={referenceNameInput}
+                referenceEmailInput={referenceEmailInput}
+                referencePhoneInput={referencePhoneInput}
                 handleAddReference={handleAddReference}
-                handleReferenceInput={handleReferenceInput}
             />
             <Cv
                 nameInput={nameInput}
@@ -115,12 +118,7 @@ function App() {
                 titleInput={titleInput}
                 profileInput={profileInput}
                 skills={skills}
-                handleInputChange={handleInputChange}
-                handleEmailInput={handleEmailInput}
-                handlePhoneInput={handlePhoneInput}
-                handleAddressInput={handleAddressInput}
-                handleTitleInput={handleTitleInput}
-                handleProfileInput={handleProfileInput}
+                references={references}
             />
         </div>
     );

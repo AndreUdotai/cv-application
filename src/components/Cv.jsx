@@ -12,6 +12,7 @@ function Cv({
     titleInput,
     profileInput,
     skills,
+    references
 }) {
     return (
         <div className='cv'>
@@ -26,6 +27,7 @@ function Cv({
             <hr />
             <MainSection
                 skills={skills}
+                references={references}
             />
         </div>
     );

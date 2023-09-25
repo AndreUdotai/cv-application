@@ -1,14 +1,13 @@
-import RightSide from "./RightSide";
-import LeftSide from "./leftSide";
+/* eslint-disable react/prop-types */
+import RightSide from './RightSide';
+import LeftSide from './leftSide';
 import '../App.css';
 
-
-// eslint-disable-next-line react/prop-types
-export default function MainSection({skills}) {
+export default function MainSection({ skills, references }) {
     return (
-        <div className="mainSection">
-            < LeftSide />
-            < RightSide skills={skills} />
+        <div className='mainSection'>
+            <LeftSide />
+            <RightSide skills={skills} references={references} />
         </div>
-    )
+    );
 }

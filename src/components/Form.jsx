@@ -134,7 +134,7 @@ function Skills({ skills, skillsInput, handleAddSkill, handleSkillsInput }) {
                 />
                 <Button
                     name={'Add'}
-                    handleAdd={(e) => handleAddSkill(e, skillsInput)}
+                    handleAdd={(e) => handleAddSkill(e)}
                 />
             </div>
             <ul>
@@ -147,10 +147,14 @@ function Skills({ skills, skillsInput, handleAddSkill, handleSkillsInput }) {
 }
 
 function References({
-    referenceProfile,
+    referenceName,
+    referenceEmail,
+    referencePhone,
     references,
+    referenceNameInput,
+    referenceEmailInput,
+    referencePhoneInput,
     handleAddReference,
-    handleReferenceInput,
 }) {
     return (
         <div className='form'>
@@ -158,22 +162,22 @@ function References({
             <div className='referencesForm'>
                 <Input 
                     label={'Name, Institution'} 
-                    name={'name'} 
-                    handleInputChange={handleReferenceInput}
+                    inputValue={referenceName} 
+                    handleInputChange={referenceNameInput}
                 />
                 <Input 
                     label={'Email'} 
-                    name={'email'} 
-                    handleInputChange={handleReferenceInput}
+                    inputValue={referenceEmail} 
+                    handleInputChange={referenceEmailInput}
                 />
                 <Input 
                     label={'Phone number'} 
-                    name={'phone'}
-                    handleInputChange={handleReferenceInput}
+                    inputValue={referencePhone}
+                    handleInputChange={referencePhoneInput}
                 />
                 <Button
                     name={'Add'}
-                    handleAdd={(e) => handleAddReference(e, referenceProfile)}
+                    handleAdd={(e) => handleAddReference(e)}
                 />
             </div>
             <ul>
@@ -194,7 +198,9 @@ export default function Form({
     profileInput,
     skills,
     skillsInput,
-    referenceProfile,
+    referenceName,
+    referenceEmail,
+    referencePhone,
     references,
     handleInputChange,
     handleEmailInput,
@@ -204,8 +210,10 @@ export default function Form({
     handleProfileInput,
     handleAddSkill,
     handleSkillsInput,
+    referenceNameInput,
+    referenceEmailInput,
+    referencePhoneInput,
     handleAddReference,
-    handleReferenceInput,
 }) {
     return (
         <div className='formSection'>
@@ -232,10 +240,14 @@ export default function Form({
                 handleSkillsInput={handleSkillsInput}
             />
             <References
-                referenceProfile={referenceProfile}
+                referenceName={referenceName}
+                referenceEmail={referenceEmail}
+                referencePhone={referencePhone}
                 references={references}
+                referenceNameInput={referenceNameInput}
+                referenceEmailInput={referenceEmailInput}
+                referencePhoneInput={referencePhoneInput}
                 handleAddReference={handleAddReference}
-                handleReferenceInput={handleReferenceInput}
             />
         </div>
     );
