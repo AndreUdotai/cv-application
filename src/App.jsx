@@ -7,7 +7,7 @@ import Cv from './components/Cv';
 import Form from './components/Form';
 
 const skillsArray = [];
-const referencesArray = [];
+let references = [];
 let educationArray = [];
 let workHistory = [];
 
@@ -55,7 +55,7 @@ function App() {
     const [referenceInstitution, setReferenceInstitution] = useState('');
     const [referenceEmail, setReferenceEmail] = useState('');
     const [referencePhone, setReferencePhone] = useState('');
-    const [references, setReferences] = useState(referencesArray)
+    // const [references, setReferences] = useState(referencesArray)
 
     const referenceNameInput = (name) => {
         setReferenceName(name)
@@ -75,7 +75,7 @@ function App() {
 
     const handleAddReference = (e) => {
         e.preventDefault();
-        setReferences([
+        references = [
             ...references,
             {
                 id: uuidv4(),
@@ -84,7 +84,7 @@ function App() {
                 email: referenceEmail,
                 phone: referencePhone,
             },
-        ]);
+        ];
         setReferenceName('');
         setReferenceInstitution('');
         setReferenceEmail('');
