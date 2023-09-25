@@ -123,6 +123,67 @@ function EmploymentHistory() {
     );
 }
 
+function Education({
+    educationDegree,
+    educationDepartment,
+    educationSchool,
+    educationLocation,
+    educationStart,
+    educationEnd,
+    educationArray,
+    handleDegreeInput,
+    handleDepartmentInput,
+    handleSchoolInput,
+    handleLocationInput,
+    handleStartInput,
+    handleEndInput,
+    handleAddEducation,
+}) {
+    return (
+        <div className='form'>
+            <h2>Education</h2>
+            <div className='educationForm'>
+                <Input
+                    label={'Degree'}
+                    inputValue={educationDegree}
+                    handleInputChange={handleDegreeInput}
+                />
+                <Input
+                    label={'Department'}
+                    inputValue={educationDepartment}
+                    handleInputChange={handleDepartmentInput}
+                />
+                <Input
+                    label={'School'}
+                    inputValue={educationSchool}
+                    handleInputChange={handleSchoolInput}
+                />
+                <Input
+                    label={'Location'}
+                    inputValue={educationLocation}
+                    handleInputChange={handleLocationInput}
+                />
+                <Input
+                    label={'Start date'}
+                    inputValue={educationStart}
+                    handleInputChange={handleStartInput}
+                />
+                <Input
+                    label={'End date'}
+                    inputValue={educationEnd}
+                    handleInputChange={handleEndInput}
+                />
+                <Button name={'Add'} handleAdd={(e) => handleAddEducation(e)} />
+            </div>
+            <ul>
+                {educationArray.map((item) => (
+                    <li key={item.id}>{item.degree}</li>
+                ))}
+            </ul>
+        </div>
+    );
+}
+
 function Skills({ skills, skillsInput, handleAddSkill, handleSkillsInput }) {
     return (
         <div className='form'>
@@ -132,10 +193,7 @@ function Skills({ skills, skillsInput, handleAddSkill, handleSkillsInput }) {
                     inputValue={skillsInput}
                     handleInputChange={handleSkillsInput}
                 />
-                <Button
-                    name={'Add'}
-                    handleAdd={(e) => handleAddSkill(e)}
-                />
+                <Button name={'Add'} handleAdd={(e) => handleAddSkill(e)} />
             </div>
             <ul>
                 {skills.map((item) => (
@@ -160,25 +218,22 @@ function References({
         <div className='form'>
             <h2>References</h2>
             <div className='referencesForm'>
-                <Input 
-                    label={'Name, Institution'} 
-                    inputValue={referenceName} 
+                <Input
+                    label={'Name, Institution'}
+                    inputValue={referenceName}
                     handleInputChange={referenceNameInput}
                 />
-                <Input 
-                    label={'Email'} 
-                    inputValue={referenceEmail} 
+                <Input
+                    label={'Email'}
+                    inputValue={referenceEmail}
                     handleInputChange={referenceEmailInput}
                 />
-                <Input 
-                    label={'Phone number'} 
+                <Input
+                    label={'Phone number'}
                     inputValue={referencePhone}
                     handleInputChange={referencePhoneInput}
                 />
-                <Button
-                    name={'Add'}
-                    handleAdd={(e) => handleAddReference(e)}
-                />
+                <Button name={'Add'} handleAdd={(e) => handleAddReference(e)} />
             </div>
             <ul>
                 {references.map((item) => (
@@ -214,6 +269,20 @@ export default function Form({
     referenceEmailInput,
     referencePhoneInput,
     handleAddReference,
+    educationDegree,
+    educationDepartment,
+    educationSchool,
+    educationLocation,
+    educationStart,
+    educationEnd,
+    educationArray,
+    handleDegreeInput,
+    handleDepartmentInput,
+    handleSchoolInput,
+    handleLocationInput,
+    handleStartInput,
+    handleEndInput,
+    handleAddEducation,
 }) {
     return (
         <div className='formSection'>
@@ -233,6 +302,22 @@ export default function Form({
                 handleProfileInput={handleProfileInput}
             />
             <EmploymentHistory />
+            <Education
+                educationDegree={educationDegree}
+                educationDepartment={educationDepartment}
+                educationSchool={educationSchool}
+                educationLocation={educationLocation}
+                educationStart={educationStart}
+                educationEnd={educationEnd}
+                educationArray={educationArray}
+                handleDegreeInput={handleDegreeInput}
+                handleDepartmentInput={handleDepartmentInput}
+                handleSchoolInput={handleSchoolInput}
+                handleLocationInput={handleLocationInput}
+                handleStartInput={handleStartInput}
+                handleEndInput={handleEndInput}
+                handleAddEducation={handleAddEducation}
+            />
             <Skills
                 skills={skills}
                 skillsInput={skillsInput}

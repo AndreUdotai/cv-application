@@ -8,6 +8,7 @@ import Form from './components/Form';
 
 const skillsArray = [];
 const referencesArray = [];
+let educationArray = [];
 
 function App() {
     const [nameInput, setNameInput] = useState('');
@@ -82,6 +83,57 @@ function App() {
         setReferencePhone('');
     };
 
+    const [educationDegree, setEducationDegree] = useState('');
+    const [educationDepartment, setEducationDepartment] = useState('');
+    const [educationSchool, setEducationSchool] = useState('');
+    const [educationLocation, setEducationLocation] = useState('');
+    const [educationStart, setEducationStart] = useState('');
+    const [educationEnd, setEducationEnd] = useState('');
+
+    const handleDegreeInput = (degree) => {
+        setEducationDegree(degree)
+    };
+
+    const handleDepartmentInput = (department) => {
+        setEducationDepartment(department)
+    }
+
+    const handleSchoolInput = (school) => {
+        setEducationSchool(school)
+    };
+
+    const handleLocationInput = (location) => {
+        setEducationLocation(location)
+    };
+
+    const handleStartInput = (start) => {
+        setEducationStart(start)
+    }
+
+    const handleEndInput = (end) => {
+        setEducationEnd(end)
+    }
+
+    const handleAddEducation = (e) => {
+        e.preventDefault();
+        educationArray = [...educationArray, {
+            id: uuidv4(),
+            degree: educationDegree,
+            department: educationDepartment,
+            school: educationSchool,
+            location: educationLocation,
+            start: educationStart,
+            end: educationEnd,
+        }]
+        setEducationDegree('');
+        setEducationDepartment('');
+        setEducationSchool('')
+        setEducationLocation('');
+        setEducationStart('')
+        setEducationEnd('')
+    };
+
+
     return (
         <div className='app'>
             <Form
@@ -109,6 +161,20 @@ function App() {
                 referenceEmailInput={referenceEmailInput}
                 referencePhoneInput={referencePhoneInput}
                 handleAddReference={handleAddReference}
+                educationDegree={educationDegree}
+                educationDepartment= {educationDepartment}
+                educationSchool={educationSchool}
+                educationLocation={educationLocation}
+                educationStart={educationStart}
+                educationEnd={educationEnd}
+                educationArray={educationArray}
+                handleDegreeInput={handleDegreeInput}
+                handleDepartmentInput={handleDepartmentInput}
+                handleSchoolInput={handleSchoolInput}
+                handleLocationInput={handleLocationInput}
+                handleStartInput={handleStartInput}
+                handleEndInput={handleEndInput}
+                handleAddEducation={handleAddEducation}
             />
             <Cv
                 nameInput={nameInput}
@@ -119,6 +185,7 @@ function App() {
                 profileInput={profileInput}
                 skills={skills}
                 references={references}
+                education={educationArray}
             />
         </div>
     );

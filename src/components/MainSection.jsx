@@ -3,10 +3,10 @@ import RightSide from './RightSide';
 import LeftSide from './leftSide';
 import '../App.css';
 
-export default function MainSection({ skills, references }) {
+export default function MainSection({ skills, references, education }) {
     return (
         <div className='mainSection'>
-            <LeftSide />
+            <LeftSide education={education} />
             <RightSide skills={skills} references={references} />
         </div>
     );
