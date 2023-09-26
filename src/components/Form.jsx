@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 import { FaAngleDown } from 'react-icons/fa6';
 import { FaAngleUp } from 'react-icons/fa6';
-import { FaXmark } from 'react-icons/fa6';
+// import { FaXmark } from 'react-icons/fa6';
 
 
 function Input({ label, inputValue, handleInputChange, name }) {
@@ -53,7 +53,7 @@ function ListDisplay({ list }) {
                 {list.map((item) => (
                     <li key={item.id}>
                         <p>{item.name}</p>
-                        <FaXmark />
+                        {/* <FaXmark /> */}
                     </li>
                 ))}
             </ul>
