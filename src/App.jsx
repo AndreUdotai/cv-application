@@ -12,8 +12,6 @@ let educationArray = [];
 let workHistory = [];
 
 function App() {
-    // const[open, setOpen] = useState(false);
-
     const [nameInput, setNameInput] = useState('');
     const [emailInput, setEmailInput] = useState('');
     const [phoneInput, setPhoneInput] = useState('');
@@ -75,16 +73,18 @@ function App() {
 
     const handleAddReference = (e) => {
         e.preventDefault();
-        references = [
-            ...references,
-            {
-                id: uuidv4(),
-                name: referenceName,
-                institution: referenceInstitution,
-                email: referenceEmail,
-                phone: referencePhone,
-            },
-        ];
+        if(referenceName){
+            references = [
+                ...references,
+                {
+                    id: uuidv4(),
+                    name: referenceName,
+                    institution: referenceInstitution,
+                    email: referenceEmail,
+                    phone: referencePhone,
+                },
+            ];
+        }
         setReferenceName('');
         setReferenceInstitution('');
         setReferenceEmail('');
@@ -124,15 +124,17 @@ function App() {
 
     const handleAddEducation = (e) => {
         e.preventDefault();
-        educationArray = [...educationArray, {
-            id: uuidv4(),
-            degree: educationDegree,
-            department: educationDepartment,
-            school: educationSchool,
-            location: educationLocation,
-            start: educationStart,
-            end: educationEnd,
-        }]
+        if(educationDegree){
+            educationArray = [...educationArray, {
+                id: uuidv4(),
+                degree: educationDegree,
+                department: educationDepartment,
+                school: educationSchool,
+                location: educationLocation,
+                start: educationStart,
+                end: educationEnd,
+            }]
+        }
         setEducationDegree('');
         setEducationDepartment('');
         setEducationSchool('')
@@ -174,15 +176,17 @@ function App() {
 
     const handleAddWork = (e) => {
         e.preventDefault();
-        workHistory = [...workHistory, {
-            id: uuidv4(),
-            position: workPosition,
-            name: workName,
-            location: workLocation,
-            start: workStart,
-            end: workEnd,
-            achievement: workAchievement,
-        }]
+        if(workPosition){
+            workHistory = [...workHistory, {
+                id: uuidv4(),
+                position: workPosition,
+                name: workName,
+                location: workLocation,
+                start: workStart,
+                end: workEnd,
+                achievement: workAchievement,
+            }]
+        }
         setWorkPosition('');
         setWorkName('');
         setWorkLocation('')

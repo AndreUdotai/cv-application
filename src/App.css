@@ -209,8 +209,11 @@ textarea:focus {
 
 .listDisplay li {
     margin-top: 4px;
-    padding: 8px 4px;
+    padding: 10px 6px;
     box-shadow: 1px 1px 6px rgb(211, 214, 220);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 

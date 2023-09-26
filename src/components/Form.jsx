@@ -3,6 +3,8 @@ import { useState } from 'react';
 
 import { FaAngleDown } from 'react-icons/fa6';
 import { FaAngleUp } from 'react-icons/fa6';
+import { FaXmark } from 'react-icons/fa6';
+
 
 function Input({ label, inputValue, handleInputChange, name }) {
     return (
@@ -49,7 +51,10 @@ function ListDisplay({ list }) {
         <div className='listDisplay'>
             <ul>
                 {list.map((item) => (
-                    <li key={item.id}>{item.name}</li>
+                    <li key={item.id}>
+                        <p>{item.name}</p>
+                        <FaXmark />
+                    </li>
                 ))}
             </ul>
         </div>
