@@ -5,7 +5,6 @@ import { FaAngleDown } from 'react-icons/fa6';
 import { FaAngleUp } from 'react-icons/fa6';
 // import { FaXmark } from 'react-icons/fa6';
 
-
 function Input({ label, inputValue, handleInputChange, name }) {
     return (
         <div className='inputComponent'>
@@ -78,46 +77,48 @@ function PersonalDetails({
     onToggle,
 }) {
     return (
-        <div className='form'>
-            <div className='formHeader' onClick={onToggle}>
-                <h2>Personal Details</h2>
-                {isActive ? <FaAngleUp /> : <FaAngleDown />}
+        <>
+            <div className='form'>
+                <div className='formHeader' onClick={onToggle}>
+                    <h2>Personal Details</h2>
+                    {isActive ? <FaAngleUp /> : <FaAngleDown />}
+                </div>
+                {isActive && (
+                    <form>
+                        <Input
+                            label={'Full name'}
+                            inputValue={nameInput}
+                            handleInputChange={handleInputChange}
+                        />
+                        <Input
+                            label={'Email'}
+                            inputValue={emailInput}
+                            handleInputChange={handleEmailInput}
+                        />
+                        <Input
+                            label={'Phone number'}
+                            inputValue={phoneInput}
+                            handleInputChange={handlePhoneInput}
+                        />
+                        <Input
+                            label={'Address'}
+                            inputValue={addressInput}
+                            handleInputChange={handleAddressInput}
+                        />
+                        <Input
+                            label={'Professional title'}
+                            inputValue={titleInput}
+                            handleInputChange={handleTitleInput}
+                        />
+                        <TextArea
+                            label={'Profile'}
+                            inputValue={profileInput}
+                            handleInputChange={handleProfileInput}
+                        />
+                    </form>
+                )}
             </div>
-            {isActive && (
-                <form>
-                    <Input
-                        label={'Full name'}
-                        inputValue={nameInput}
-                        handleInputChange={handleInputChange}
-                    />
-                    <Input
-                        label={'Email'}
-                        inputValue={emailInput}
-                        handleInputChange={handleEmailInput}
-                    />
-                    <Input
-                        label={'Phone number'}
-                        inputValue={phoneInput}
-                        handleInputChange={handlePhoneInput}
-                    />
-                    <Input
-                        label={'Address'}
-                        inputValue={addressInput}
-                        handleInputChange={handleAddressInput}
-                    />
-                    <Input
-                        label={'Professional title'}
-                        inputValue={titleInput}
-                        handleInputChange={handleTitleInput}
-                    />
-                    <TextArea
-                        label={'Profile'}
-                        inputValue={profileInput}
-                        handleInputChange={handleProfileInput}
-                    />
-                </form>
-            )}
-        </div>
+        </>
     );
 }
 
@@ -423,6 +424,9 @@ export default function Form({
 
     return (
         <div className='formSection'>
+            <div className='formForm'>
+                <p>Fill in your details in the forms below to edit the content of the sample CV.</p>
+            </div>
             <PersonalDetails
                 nameInput={nameInput}
                 emailInput={emailInput}

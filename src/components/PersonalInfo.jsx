@@ -5,19 +5,29 @@ import '../App.css';
 function Details({ emailInput, phoneInput, addressInput }) {
     return (
         <div className='details'>
-            <p>{emailInput ? emailInput : 'andreudotai@gmail.com'}</p>
-            <p>{phoneInput ? phoneInput : "+234 (813) 881 8457"}</p>
-            <p>{addressInput ? addressInput : 'House 24B, Zone B, Apo Resettlement, Garki 2, Abuja'}</p>
+            <p>{emailInput ? emailInput : 'ekarikamboutidem@gmail.com'}</p>
+            <p>{phoneInput ? phoneInput : '+234 (813) 881 XXXX'}</p>
+            <p>
+                {addressInput
+                    ? addressInput
+                    : 'House 5A, Ekpenyong Street, Uyo, Akwa Ibom, Nigeria'}
+            </p>
         </div>
     );
 }
 
-function Profile({titleInput, profileInput}) {
+function Profile({ titleInput, profileInput }) {
     return (
         <div className='column profile'>
-            <h3>{titleInput ? titleInput : 'Project Manager | Full Stack Web Developer'}</h3>
+            <h3>
+                {titleInput
+                    ? titleInput
+                    : 'Business Manager'}
+            </h3>
             <p>
-                {profileInput ? profileInput : 'DDedicated Project Manager with experience in building web applications, ideation. Dedicated Project Manager with experience in building web applications, ideation. Dedicated Project Manager with experience in building web applications,ideation.Dedicated Project Manager with experience in building web applications, ideation.'}
+                {profileInput
+                    ? profileInput
+                    : 'Dedicated and results-driven Business Manager with over 10 years of experience in leading cross-functional teams to achieve business growth and profitability. Proven track record in strategic planning, financial management, and market expansion. Strong communication and negotiation skills. Adept at analyzing data and making informed decisions to drive organizational success.'}
             </p>
         </div>
     );

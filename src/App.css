@@ -45,6 +45,13 @@ body {
     flex-grow: 1;
 }
 
+.formForm {
+  background-color: rgb(255, 255, 255);
+  margin-bottom: 20px;
+  /* border-radius: 20px; */
+  padding: 20px;
+}
+
 .form {
     background-color: rgb(255, 255, 255);
     margin-bottom: 20px;

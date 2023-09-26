@@ -19,17 +19,17 @@ export default function References({ references }) {
                     <li>
                         <p>Dr. Gene Randolph from the University of Oklahoma</p>
                         <p>grandolph@Oklahoma.edu</p>
-                        <p>08138818457</p>
+                        <p>0813881XXXX</p>
                     </li>
                     <li>
                         <p>Dr. Gene Randolph from the University of Oklahoma</p>
                         <p>grandolph@Oklahoma.edu</p>
-                        <p>08138818457</p>
+                        <p>0813881XXXX</p>
                     </li>
                     <li>
                         <p>Dr. Gene Randolph from the University of Oklahoma</p>
                         <p>grandolph@Oklahoma.edu</p>
-                        <p>08138818457</p>
+                        <p>0813881XXXX</p>
                     </li>
                 </ul>
             )}

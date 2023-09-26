@@ -21,12 +21,11 @@ function School({ education }) {
                 </ul>
             ) : (
                 <>
-                    <h4>Federal University of Technology, Owerri</h4>
+                    <h4>Harvard University, Cambridge, Massachusetts, USA</h4>
                     <p>04/03/2006 - 03/03/2011</p>
                     <ul>
                         <p>
-                            Bachelor of Technology, <br /> Food Science and
-                            Technology
+                            Master of Business, <br /> Harvard Business School
                         </p>
                     </ul>
                 </>

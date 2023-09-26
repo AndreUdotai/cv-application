@@ -12,13 +12,13 @@ export default function Skills({ skills }) {
                 </ul>
             ) : (
                 <ul>
-                    <li>Writing</li>
-                    <li>Coding</li>
-                    <li>Data processing</li>
-                    <li>HTML</li>
+                    <li>Strategic Planning</li>
+                    <li>Leadership</li>
+                    <li>Financial Acumen</li>
+                    <li>Market Analysis</li>
+                    <li>Negotiation</li>
                     <li>Project Management</li>
-                    <li>Microsoft Powerpoint presentation</li>
-                    <li>Builing no code websites</li>
+                    <li>Problem Solving</li>
                 </ul>
             )}
         </div>
