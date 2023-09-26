@@ -52,6 +52,16 @@ body {
     padding: 20px;
 }
 
+.formHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.formHeader:hover {
+  cursor: pointer;
+}
+
 .name {
     font-size: 5rem;
     text-align: left;
@@ -202,3 +212,5 @@ textarea:focus {
     padding: 8px 4px;
     box-shadow: 1px 1px 6px rgb(211, 214, 220);
 }
+
+

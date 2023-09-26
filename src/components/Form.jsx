@@ -1,6 +1,9 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
 
+import { FaAngleDown } from 'react-icons/fa6';
+import { FaAngleUp } from 'react-icons/fa6';
+
 function Input({ label, inputValue, handleInputChange, name }) {
     return (
         <div className='inputComponent'>
@@ -71,7 +74,10 @@ function PersonalDetails({
 }) {
     return (
         <div className='form'>
-            <h2 onClick={onToggle}>Personal Details</h2>
+            <div className='formHeader' onClick={onToggle}>
+                <h2>Personal Details</h2>
+                {isActive ? <FaAngleUp /> : <FaAngleDown />}
+            </div>
             {isActive && (
                 <form>
                     <Input
@@ -130,7 +136,10 @@ function EmploymentHistory({
 }) {
     return (
         <div className='form'>
-            <h2 onClick={onToggle}>Employment History</h2>
+            <div className='formHeader' onClick={onToggle}>
+                <h2>Work History</h2>
+                {isActive ? <FaAngleUp /> : <FaAngleDown />}
+            </div>
             {isActive && (
                 <>
                     <form>
@@ -202,7 +211,10 @@ function Education({
 }) {
     return (
         <div className='form'>
-            <h2 onClick={onToggle}>Education</h2>
+            <div className='formHeader' onClick={onToggle}>
+                <h2>Education</h2>
+                {isActive ? <FaAngleUp /> : <FaAngleDown />}
+            </div>
             {isActive && (
                 <>
                     <div className='educationForm'>
@@ -264,7 +276,10 @@ function Skills({
 }) {
     return (
         <div className='form'>
-            <h2 onClick={onToggle}>Skills</h2>
+            <div className='formHeader' onClick={onToggle}>
+                <h2>Skills</h2>
+                {isActive ? <FaAngleUp /> : <FaAngleDown />}
+            </div>
             {isActive && (
                 <>
                     <div className='skillsForm'>
@@ -300,7 +315,10 @@ function References({
 }) {
     return (
         <div className='form'>
-            <h2 onClick={onToggle}>References</h2>
+            <div className='formHeader' onClick={onToggle}>
+                <h2>References</h2>
+                {isActive ? <FaAngleUp /> : <FaAngleDown />}
+            </div>
             {isActive && (
                 <>
                     <div className='referencesForm'>
