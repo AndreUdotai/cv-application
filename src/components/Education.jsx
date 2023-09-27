@@ -3,7 +3,7 @@
 function School({ education }) {
     return (
         <div className='school'>
-            {education.length > 0 ? (
+            {education && education.length > 0 ? (
                 <ul>
                     {education.map((program) => (
                         <div key={program.id}>

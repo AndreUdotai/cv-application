@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 
-// import MainSection from './components/MainSection';
 import MainSection from './MainSection';
 import PersonalDetails from './PersonalDetails';
 

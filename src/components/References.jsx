@@ -4,7 +4,7 @@ export default function References({ references }) {
     return (
         <div className='references'>
             <h3>References</h3>
-            {references.length > 0 ? (
+            {references && references.length > 0 ? (
                 <ul>
                     {references.map((reference) => (
                         <li key={reference.id}>

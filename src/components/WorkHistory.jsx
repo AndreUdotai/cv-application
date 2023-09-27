@@ -5,7 +5,7 @@ import { Fragment } from 'react';
 function WorkExperience({ workHistory }) {
     return (
         <div className='workExperience'>
-            {workHistory.length > 0 ? (
+            {workHistory && workHistory.length > 0 ? (
                 workHistory.map((work) => (
                     <Fragment key={work.id}>
                         <h4>

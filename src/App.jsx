@@ -1,10 +1,13 @@
 import { useState } from 'react';
 
+// import { Preview, print } from 'react-html2pdf';
+
 import { v4 as uuidv4 } from 'uuid';
 
 import './App.css';
 import Cv from './components/Cv';
 import Form from './components/Form';
+// import Download from './components/Download';
 
 let skills = [];
 let references = [];
@@ -253,6 +256,7 @@ function App() {
                 handleWorkAchievement={handleWorkAchievement}
                 handleAddWork={handleAddWork}
             />
+            {/* <Preview id={'jsx-template'}> */}
             <Cv
                 nameInput={nameInput}
                 emailInput={emailInput}
@@ -265,6 +269,9 @@ function App() {
                 education={educationArray}
                 workHistory={workHistory}
             />
+            {/* </Preview> */}
+            {/* <button onClick={() => print('a', 'jsx-template')}> print</button> */}
+            {/* < Download /> */}
         </div>
     );
 }
