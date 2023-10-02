@@ -223,4 +223,7 @@ textarea:focus {
     align-items: center;
 }
 
-
+.iconHeader {
+    display: flex;
+    gap: 6px;
+}

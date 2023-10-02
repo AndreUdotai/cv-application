@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { FaGraduationCap } from 'react-icons/fa6';
 
 function School({ education }) {
     return (
@@ -14,7 +15,10 @@ function School({ education }) {
                                 {program.start} - {program.end}
                             </p>
                             <ul>
-                                <p>{program.degree}, <br /> {program.department}</p>
+                                <p>
+                                    {program.degree}, <br />{' '}
+                                    {program.department}
+                                </p>
                             </ul>
                         </div>
                     ))}
@@ -37,7 +41,7 @@ function School({ education }) {
 export default function Education({ education }) {
     return (
         <>
-            <h3>Education</h3>
+            <h3 className='iconHeader'><FaGraduationCap /> Education</h3>
             <School education={education} />
         </>
     );

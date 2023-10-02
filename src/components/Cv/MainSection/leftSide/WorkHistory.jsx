@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { FaSuitcase } from 'react-icons/fa6';
 
 import { Fragment } from 'react';
 
@@ -62,7 +63,7 @@ function WorkExperience({ workHistory }) {
 export default function WorkHistory({ workHistory }) {
     return (
         <>
-            <h3>Work History</h3>
+            <h3 className='iconHeader'><FaSuitcase/>Work History</h3>
             <WorkExperience workHistory={workHistory} />
         </>
     );

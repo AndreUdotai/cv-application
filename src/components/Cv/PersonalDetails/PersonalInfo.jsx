@@ -1,11 +1,14 @@
 /* eslint-disable react/prop-types */
+import { FaPhoneFlip } from 'react-icons/fa6';
+import { FaLocationDot } from 'react-icons/fa6';
+import { FaEnvelope } from 'react-icons/fa6';
 
 function Details({ emailInput, phoneInput, addressInput }) {
     return (
         <div className='details'>
-            <p>{emailInput ? emailInput : 'ekarikamboutidem@gmail.com'}</p>
-            <p>{phoneInput ? phoneInput : '+234 (813) 881 XXXX'}</p>
-            <p>
+            <p className='iconHeader'><FaEnvelope/>{emailInput ? emailInput : 'ekarikamboutidem@gmail.com'}</p>
+            <p className='iconHeader'><FaPhoneFlip/>{phoneInput ? phoneInput : '+234 (813) 881 XXXX'}</p>
+            <p className='iconHeader'><FaLocationDot/>
                 {addressInput
                     ? addressInput
                     : 'House 5A, Ekpenyong Street, Uyo, Akwa Ibom, Nigeria'}

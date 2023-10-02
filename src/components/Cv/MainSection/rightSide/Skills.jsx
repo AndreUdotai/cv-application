@@ -1,9 +1,10 @@
 /* eslint-disable react/prop-types */
+import { FaLaptopCode } from 'react-icons/fa6';
 
 export default function Skills({ skills }) {
     return (
         <div className='skills'>
-            <h3>Skills</h3>
+            <h3 className='iconHeader'>< FaLaptopCode/> Skills</h3>
             {skills && skills.length > 0 ? (
                 <ul>
                     {skills.map((item) => (

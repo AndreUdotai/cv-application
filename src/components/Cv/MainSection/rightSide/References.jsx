@@ -1,9 +1,10 @@
 /* eslint-disable react/prop-types */
+import { FaHandshakeSimple } from 'react-icons/fa6';
 
 export default function References({ references }) {
     return (
         <div className='references'>
-            <h3>References</h3>
+            <h3 className='iconHeader'>< FaHandshakeSimple/>References</h3>
             {references && references.length > 0 ? (
                 <ul>
                     {references.map((reference) => (
