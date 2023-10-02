@@ -215,19 +215,21 @@ function EmploymentHistory({
 }
 
 function Education({
-    educationDegree,
-    educationDepartment,
-    educationSchool,
-    educationLocation,
-    educationStart,
-    educationEnd,
+    inputs,
+    handleInput,
+    // educationDegree,
+    // educationDepartment,
+    // educationSchool,
+    // educationLocation,
+    // educationStart,
+    // educationEnd,
     educationArray,
-    handleDegreeInput,
-    handleDepartmentInput,
-    handleSchoolInput,
-    handleLocationInput,
-    handleStartInput,
-    handleEndInput,
+    // handleDegreeInput,
+    // handleDepartmentInput,
+    // handleSchoolInput,
+    // handleLocationInput,
+    // handleStartInput,
+    // handleEndInput,
     handleAddEducation,
     isActive,
     onToggle,
@@ -241,35 +243,35 @@ function Education({
             {isActive && (
                 <>
                     <div className='educationForm'>
-                        <Input
+                        <PersonalDetailInput
                             label={'Degree'}
-                            inputValue={educationDegree}
-                            handleInputChange={handleDegreeInput}
+                            value={inputs[11]}
+                            handleInput={(e) => handleInput(11, e.target.value)}
                         />
-                        <Input
+                        <PersonalDetailInput
                             label={'Department'}
-                            inputValue={educationDepartment}
-                            handleInputChange={handleDepartmentInput}
+                            value={inputs[12]}
+                            handleInput={(e) => handleInput(12, e.target.value)}
                         />
-                        <Input
+                        <PersonalDetailInput
                             label={'School'}
-                            inputValue={educationSchool}
-                            handleInputChange={handleSchoolInput}
+                            value={inputs[13]}
+                            handleInput={(e) => handleInput(13, e.target.value)}
                         />
-                        <Input
+                        <PersonalDetailInput
                             label={'Location'}
-                            inputValue={educationLocation}
-                            handleInputChange={handleLocationInput}
+                            value={inputs[14]}
+                            handleInput={(e) => handleInput(14, e.target.value)}
                         />
-                        <Input
+                        <PersonalDetailInput
                             label={'Start date'}
-                            inputValue={educationStart}
-                            handleInputChange={handleStartInput}
+                            value={inputs[15]}
+                            handleInput={(e) => handleInput(15, e.target.value)}
                         />
-                        <Input
+                        <PersonalDetailInput
                             label={'End date'}
-                            inputValue={educationEnd}
-                            handleInputChange={handleEndInput}
+                            value={inputs[16]}
+                            handleInput={(e) => handleInput(16, e.target.value)}
                         />
                         <Button
                             name={'Add'}
@@ -414,19 +416,19 @@ export default function Form({
     // referenceEmailInput,
     // referencePhoneInput,
     handleAddReference,
-    educationDegree,
-    educationDepartment,
-    educationSchool,
-    educationLocation,
-    educationStart,
-    educationEnd,
+    // educationDegree,
+    // educationDepartment,
+    // educationSchool,
+    // educationLocation,
+    // educationStart,
+    // educationEnd,
     educationArray,
-    handleDegreeInput,
-    handleDepartmentInput,
-    handleSchoolInput,
-    handleLocationInput,
-    handleStartInput,
-    handleEndInput,
+    // handleDegreeInput,
+    // handleDepartmentInput,
+    // handleSchoolInput,
+    // handleLocationInput,
+    // handleStartInput,
+    // handleEndInput,
     handleAddEducation,
     workPosition,
     workName,
@@ -494,19 +496,21 @@ export default function Form({
                 onToggle={() => setIsActive2(!isActive2)}
             />
             <Education
-                educationDegree={educationDegree}
-                educationDepartment={educationDepartment}
-                educationSchool={educationSchool}
-                educationLocation={educationLocation}
-                educationStart={educationStart}
-                educationEnd={educationEnd}
+                inputs={inputs}
+                handleInput={handleInput}
+                // educationDegree={educationDegree}
+                // educationDepartment={educationDepartment}
+                // educationSchool={educationSchool}
+                // educationLocation={educationLocation}
+                // educationStart={educationStart}
+                // educationEnd={educationEnd}
                 educationArray={educationArray}
-                handleDegreeInput={handleDegreeInput}
-                handleDepartmentInput={handleDepartmentInput}
-                handleSchoolInput={handleSchoolInput}
-                handleLocationInput={handleLocationInput}
-                handleStartInput={handleStartInput}
-                handleEndInput={handleEndInput}
+                // handleDegreeInput={handleDegreeInput}
+                // handleDepartmentInput={handleDepartmentInput}
+                // handleSchoolInput={handleSchoolInput}
+                // handleLocationInput={handleLocationInput}
+                // handleStartInput={handleStartInput}
+                // handleEndInput={handleEndInput}
                 handleAddEducation={handleAddEducation}
                 isActive={isActive3}
                 onToggle={() => setIsActive3(!isActive3)}
