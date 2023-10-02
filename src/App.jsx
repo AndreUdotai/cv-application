@@ -12,7 +12,7 @@ import Form from './components/Form';
 let skills = []; //7
 let references = []; //8, 9, 10, 11
 let educationArray = []; //12, 13, 14, 15, 16, 17
-let workHistory = []; //18, 19, 
+let workHistory = []; //18, 19, 20, 21, 22, 23
 
 function App() {
     // Initialise a state for inputs with an array of length 6 with empty string
@@ -62,8 +62,9 @@ function App() {
     const handleAddSkill = (event) => {
         event.preventDefault();
         const inputArray = inputs.slice();
+        if(inputArray[6]){
         skills = [...skills, { id: uuidv4(), name: inputArray[6] }];
-        // setSkillsInput('');
+        }
         inputArray[6] = '';
         setInputs(inputArray);
     };
@@ -92,7 +93,7 @@ function App() {
     const handleAddReference = (e) => {
         e.preventDefault();
         const inputArray = inputs.slice();
-        // if(referenceName){
+        if(inputArray[7]){
             references = [
                 ...references,
                 {
@@ -103,7 +104,7 @@ function App() {
                     phone: inputArray[10],
                 },
             ];
-        // }
+        }
         inputArray[7] = '';
         inputArray[8] = '';
         inputArray[9] = '';
@@ -149,7 +150,7 @@ function App() {
     const handleAddEducation = (e) => {
         e.preventDefault();
         const inputArray = inputs.slice();
-        // if(educationDegree){
+        if(inputArray[11]){
             educationArray = [...educationArray, {
                 id: uuidv4(),
                 degree: inputArray[11],
@@ -167,7 +168,7 @@ function App() {
             inputArray[16] = '';
         setInputs(inputArray);
         
-        // }
+        }
         // setEducationDegree('');
         // setEducationDepartment('');
         // setEducationSchool('')
@@ -176,56 +177,64 @@ function App() {
         // setEducationEnd('')
     };
 
-    const [workPosition, setWorkPosition] = useState('');
-    const [workName, setWorkName] = useState('');
-    const [workLocation, setWorkLocation] = useState('');
-    const [workStart, setWorkStart] = useState('');
-    const [workEnd, setWorkEnd] = useState('');
-    const [workAchievement, setWorkAchievement] = useState('');
+    // const [workPosition, setWorkPosition] = useState('');
+    // const [workName, setWorkName] = useState('');
+    // const [workLocation, setWorkLocation] = useState('');
+    // const [workStart, setWorkStart] = useState('');
+    // const [workEnd, setWorkEnd] = useState('');
+    // const [workAchievement, setWorkAchievement] = useState('');
 
-    const handleWorkPosition = (work) => {
-        setWorkPosition(work)
-    };
+    // const handleWorkPosition = (work) => {
+    //     setWorkPosition(work)
+    // };
 
-    const handleWorkName = (department) => {
-        setWorkName(department)
-    }
+    // const handleWorkName = (department) => {
+    //     setWorkName(department)
+    // }
 
-    const handleWorkLocation = (school) => {
-        setWorkLocation(school)
-    };
+    // const handleWorkLocation = (school) => {
+    //     setWorkLocation(school)
+    // };
 
-    const handleWorkStart = (location) => {
-        setWorkStart(location)
-    };
+    // const handleWorkStart = (location) => {
+    //     setWorkStart(location)
+    // };
 
-    const handleWorkEnd = (start) => {
-        setWorkEnd(start)
-    }
+    // const handleWorkEnd = (start) => {
+    //     setWorkEnd(start)
+    // }
 
-    const handleWorkAchievement = (end) => {
-        setWorkAchievement(end)
-    }
+    // const handleWorkAchievement = (end) => {
+    //     setWorkAchievement(end)
+    // }
 
     const handleAddWork = (e) => {
         e.preventDefault();
-        if(workPosition){
+        const inputArray = inputs.slice();
+        if(inputArray[17]){
             workHistory = [...workHistory, {
                 id: uuidv4(),
-                position: workPosition,
-                name: workName,
-                location: workLocation,
-                start: workStart,
-                end: workEnd,
-                achievement: workAchievement,
+                position:       inputArray[17],
+                name:           inputArray[18],
+                location:       inputArray[19],
+                start:          inputArray[20],
+                end:            inputArray[21],
+                achievement:    inputArray[22],
             }]
+            inputArray[17] = '';
+            inputArray[18] = '';
+            inputArray[19] = '';
+            inputArray[20] = '';
+            inputArray[21] = '';
+            inputArray[22] = '';
+        setInputs(inputArray);
         }
-        setWorkPosition('');
-        setWorkName('');
-        setWorkLocation('')
-        setWorkStart('');
-        setWorkEnd('');
-        setWorkAchievement('');
+        // setWorkPosition('');
+        // setWorkName('');
+        // setWorkLocation('')
+        // setWorkStart('');
+        // setWorkEnd('');
+        // setWorkAchievement('');
     };
 
     return (
@@ -273,19 +282,19 @@ function App() {
                 // handleStartInput={handleStartInput}
                 // handleEndInput={handleEndInput}
                 handleAddEducation={handleAddEducation}
-                workPosition={workPosition}
-                workName={workName}
-                workLocation={workLocation}
-                workStart={workStart}
-                workEnd={workEnd}
-                workAchievement={workAchievement}
+                // workPosition={workPosition}
+                // workName={workName}
+                // workLocation={workLocation}
+                // workStart={workStart}
+                // workEnd={workEnd}
+                // workAchievement={workAchievement}
                 workHistory={workHistory}
-                handleWorkPosition={handleWorkPosition}
-                handleWorkName={handleWorkName}
-                handleWorkLocation={handleWorkLocation}
-                handleWorkStart={handleWorkStart}
-                handleWorkEnd={handleWorkEnd}
-                handleWorkAchievement={handleWorkAchievement}
+                // handleWorkPosition={handleWorkPosition}
+                // handleWorkName={handleWorkName}
+                // handleWorkLocation={handleWorkLocation}
+                // handleWorkStart={handleWorkStart}
+                // handleWorkEnd={handleWorkEnd}
+                // handleWorkAchievement={handleWorkAchievement}
                 handleAddWork={handleAddWork}
             />
             {/* <Preview id={'jsx-template'}> */}

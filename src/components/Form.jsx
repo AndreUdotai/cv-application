@@ -5,20 +5,20 @@ import { FaAngleDown } from 'react-icons/fa6';
 import { FaAngleUp } from 'react-icons/fa6';
 // import { FaXmark } from 'react-icons/fa6';
 
-function Input({ label, inputValue, handleInputChange, name }) {
-    return (
-        <div className='inputComponent'>
-            <label className='label'>{label}</label>
-            <input
-                type='text'
-                name={name}
-                className='input'
-                value={inputValue}
-                onChange={(event) => handleInputChange(event.target.value)}
-            />
-        </div>
-    );
-}
+// function Input({ label, inputValue, handleInputChange, name }) {
+//     return (
+//         <div className='inputComponent'>
+//             <label className='label'>{label}</label>
+//             <input
+//                 type='text'
+//                 name={name}
+//                 className='input'
+//                 value={inputValue}
+//                 onChange={(event) => handleInputChange(event.target.value)}
+//             />
+//         </div>
+//     );
+// }
 
 function PersonalDetailInput({ label, value, handleInput }) {
     return (
@@ -140,19 +140,21 @@ function PersonalDetails({
 }
 
 function EmploymentHistory({
-    workPosition,
-    workName,
-    workLocation,
-    workStart,
-    workEnd,
-    workAchievement,
+    inputs,
+    handleInput,
+    // workPosition,
+    // workName,
+    // workLocation,
+    // workStart,
+    // workEnd,
+    // workAchievement,
     workHistory,
-    handleWorkPosition,
-    handleWorkName,
-    handleWorkLocation,
-    handleWorkStart,
-    handleWorkEnd,
-    handleWorkAchievement,
+    // handleWorkPosition,
+    // handleWorkName,
+    // handleWorkLocation,
+    // handleWorkStart,
+    // handleWorkEnd,
+    // handleWorkAchievement,
     handleAddWork,
     isActive,
     onToggle,
@@ -166,35 +168,35 @@ function EmploymentHistory({
             {isActive && (
                 <>
                     <form>
-                        <Input
+                        <PersonalDetailInput
                             label={'Position'}
-                            inputValue={workPosition}
-                            handleInputChange={handleWorkPosition}
+                            value={inputs[17]}
+                            handleInput={(e) => handleInput(17, e.target.value)}
                         />
-                        <Input
+                        <PersonalDetailInput
                             label={'Name of Company'}
-                            inputValue={workName}
-                            handleInputChange={handleWorkName}
+                            value={inputs[18]}
+                            handleInput={(e) => handleInput(18, e.target.value)}
                         />
-                        <Input
+                        <PersonalDetailInput
                             label={'Location'}
-                            inputValue={workLocation}
-                            handleInputChange={handleWorkLocation}
+                            value={inputs[19]}
+                            handleInput={(e) => handleInput(19, e.target.value)}
                         />
-                        <Input
+                        <PersonalDetailInput
                             label={'Start date'}
-                            inputValue={workStart}
-                            handleInputChange={handleWorkStart}
+                            input={inputs[20]}
+                            handleInput={(e) => handleInput(20, e.target.value)}
                         />
-                        <Input
+                        <PersonalDetailInput
                             label={'End date'}
-                            inputValue={workEnd}
-                            handleInputChange={handleWorkEnd}
+                            value={inputs[21]}
+                            handleInput={(e) => handleInput(21, e.target.value)}
                         />
-                        <Input
+                        <PersonalDetailInput
                             label={'Achievements'}
-                            inputValue={workAchievement}
-                            handleInputChange={handleWorkAchievement}
+                            value={inputs[22]}
+                            handleInput={(e) => handleInput(22, e.target.value)}
                         />
                         <Button
                             name={'Add'}
@@ -430,19 +432,19 @@ export default function Form({
     // handleStartInput,
     // handleEndInput,
     handleAddEducation,
-    workPosition,
-    workName,
-    workLocation,
-    workStart,
-    workEnd,
-    workAchievement,
+    // workPosition,
+    // workName,
+    // workLocation,
+    // workStart,
+    // workEnd,
+    // workAchievement,
     workHistory,
-    handleWorkPosition,
-    handleWorkName,
-    handleWorkLocation,
-    handleWorkStart,
-    handleWorkEnd,
-    handleWorkAchievement,
+    // handleWorkPosition,
+    // handleWorkName,
+    // handleWorkLocation,
+    // handleWorkStart,
+    // handleWorkEnd,
+    // handleWorkAchievement,
     handleAddWork,
 }) {
     const [isActive1, setIsActive1] = useState(false);
@@ -478,19 +480,21 @@ export default function Form({
                 onToggle={() => setIsActive1(!isActive1)}
             />
             <EmploymentHistory
-                workPosition={workPosition}
-                workName={workName}
-                workLocation={workLocation}
-                workStart={workStart}
-                workEnd={workEnd}
-                workAchievement={workAchievement}
+                inputs={inputs}
+                handleInput={handleInput}
+                // workPosition={workPosition}
+                // workName={workName}
+                // workLocation={workLocation}
+                // workStart={workStart}
+                // workEnd={workEnd}
+                // workAchievement={workAchievement}
                 workHistory={workHistory}
-                handleWorkPosition={handleWorkPosition}
-                handleWorkName={handleWorkName}
-                handleWorkLocation={handleWorkLocation}
-                handleWorkStart={handleWorkStart}
-                handleWorkEnd={handleWorkEnd}
-                handleWorkAchievement={handleWorkAchievement}
+                // handleWorkPosition={handleWorkPosition}
+                // handleWorkName={handleWorkName}
+                // handleWorkLocation={handleWorkLocation}
+                // handleWorkStart={handleWorkStart}
+                // handleWorkEnd={handleWorkEnd}
+                // handleWorkAchievement={handleWorkAchievement}
                 handleAddWork={handleAddWork}
                 isActive={isActive2}
                 onToggle={() => setIsActive2(!isActive2)}
