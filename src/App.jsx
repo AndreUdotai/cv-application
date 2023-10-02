@@ -68,45 +68,51 @@ function App() {
         setInputs(inputArray);
     };
 
-    const [referenceName, setReferenceName] = useState('');
-    const [referenceInstitution, setReferenceInstitution] = useState('');
-    const [referenceEmail, setReferenceEmail] = useState('');
-    const [referencePhone, setReferencePhone] = useState('');
+    // const [referenceName, setReferenceName] = useState('');
+    // const [referenceInstitution, setReferenceInstitution] = useState('');
+    // const [referenceEmail, setReferenceEmail] = useState('');
+    // const [referencePhone, setReferencePhone] = useState('');
 
-    const referenceNameInput = (name) => {
-        setReferenceName(name)
-    };
+    // const referenceNameInput = (name) => {
+    //     setReferenceName(name)
+    // };
 
-    const referenceInstitutionInput = (name) => {
-        setReferenceInstitution(name)
-    }
+    // const referenceInstitutionInput = (name) => {
+    //     setReferenceInstitution(name)
+    // }
 
-    const referenceEmailInput = (email) => {
-        setReferenceEmail(email)
-    };
+    // const referenceEmailInput = (email) => {
+    //     setReferenceEmail(email)
+    // };
 
-    const referencePhoneInput = (phone) => {
-        setReferencePhone(phone)
-    };
+    // const referencePhoneInput = (phone) => {
+    //     setReferencePhone(phone)
+    // };
 
     const handleAddReference = (e) => {
         e.preventDefault();
-        if(referenceName){
+        const inputArray = inputs.slice();
+        // if(referenceName){
             references = [
                 ...references,
                 {
                     id: uuidv4(),
-                    name: referenceName,
-                    institution: referenceInstitution,
-                    email: referenceEmail,
-                    phone: referencePhone,
+                    name: inputArray[7],
+                    institution: inputArray[8],
+                    email: inputArray[9],
+                    phone: inputArray[10],
                 },
             ];
-        }
-        setReferenceName('');
-        setReferenceInstitution('');
-        setReferenceEmail('');
-        setReferencePhone('');
+        // }
+        inputArray[7] = '';
+        inputArray[8] = '';
+        inputArray[9] = '';
+        inputArray[10] = '';
+        setInputs(inputArray);
+        // setReferenceName('');
+        // setReferenceInstitution('');
+        // setReferenceEmail('');
+        // setReferencePhone('');
     };
 
     const [educationDegree, setEducationDegree] = useState('');
@@ -226,10 +232,10 @@ function App() {
                 // profileInput={profileInput}
                 skills={skills}
                 // skillsInput={skillsInput}
-                referenceName={referenceName}
-                referenceInstitution={referenceInstitution}
-                referenceEmail={referenceEmail}
-                referencePhone={referencePhone}
+                // referenceName={referenceName}
+                // referenceInstitution={referenceInstitution}
+                // referenceEmail={referenceEmail}
+                // referencePhone={referencePhone}
                 references={references}
                 // handleInputChange={handleInputChange}
                 // handleEmailInput={handleEmailInput}
@@ -239,10 +245,10 @@ function App() {
                 // handleProfileInput={handleProfileInput}
                 handleAddSkill={handleAddSkill}
                 // handleSkillsInput={handleSkillsInput}
-                referenceNameInput={referenceNameInput}
-                referenceInstitutionInput={referenceInstitutionInput}
-                referenceEmailInput={referenceEmailInput}
-                referencePhoneInput={referencePhoneInput}
+                // referenceNameInput={referenceNameInput}
+                // referenceInstitutionInput={referenceInstitutionInput}
+                // referenceEmailInput={referenceEmailInput}
+                // referencePhoneInput={referencePhoneInput}
                 handleAddReference={handleAddReference}
                 educationDegree={educationDegree}
                 educationDepartment= {educationDepartment}

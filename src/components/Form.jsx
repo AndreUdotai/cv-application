@@ -329,15 +329,17 @@ function Skills({
 }
 
 function References({
-    referenceName,
-    referenceInstitution,
-    referenceEmail,
-    referencePhone,
+    inputs,
+    handleInput,
+    // referenceName,
+    // referenceInstitution,
+    // referenceEmail,
+    // referencePhone,
     references,
-    referenceNameInput,
-    referenceInstitutionInput,
-    referenceEmailInput,
-    referencePhoneInput,
+    // referenceNameInput,
+    // referenceInstitutionInput,
+    // referenceEmailInput,
+    // referencePhoneInput,
     handleAddReference,
     isActive,
     onToggle,
@@ -351,25 +353,25 @@ function References({
             {isActive && (
                 <>
                     <div className='referencesForm'>
-                        <Input
-                            label={'Name'}
-                            inputValue={referenceName}
-                            handleInputChange={referenceNameInput}
+                        <PersonalDetailInput
+                            label={'Full name'}
+                            value={inputs[7]}
+                            handleInput={(e) => handleInput(7, e.target.value)}
                         />
-                        <Input
-                            label={'Institution'}
-                            inputValue={referenceInstitution}
-                            handleInputChange={referenceInstitutionInput}
+                        <PersonalDetailInput
+                            label={'Full name'}
+                            value={inputs[8]}
+                            handleInput={(e) => handleInput(8, e.target.value)}
                         />
-                        <Input
-                            label={'Email'}
-                            inputValue={referenceEmail}
-                            handleInputChange={referenceEmailInput}
+                        <PersonalDetailInput
+                            label={'Full name'}
+                            value={inputs[9]}
+                            handleInput={(e) => handleInput(9, e.target.value)}
                         />
-                        <Input
-                            label={'Phone number'}
-                            inputValue={referencePhone}
-                            handleInputChange={referencePhoneInput}
+                        <PersonalDetailInput
+                            label={'Full name'}
+                            value={inputs[10]}
+                            handleInput={(e) => handleInput(10, e.target.value)}
                         />
                         <Button
                             name={'Add'}
@@ -394,10 +396,10 @@ export default function Form({
     // profileInput,
     skills,
     // skillsInput,
-    referenceName,
-    referenceInstitution,
-    referenceEmail,
-    referencePhone,
+    // referenceName,
+    // referenceInstitution,
+    // referenceEmail,
+    // referencePhone,
     references,
     // handleInputChange,
     // handleEmailInput,
@@ -407,10 +409,10 @@ export default function Form({
     // handleProfileInput,
     handleAddSkill,
     // handleSkillsInput,
-    referenceNameInput,
-    referenceInstitutionInput,
-    referenceEmailInput,
-    referencePhoneInput,
+    // referenceNameInput,
+    // referenceInstitutionInput,
+    // referenceEmailInput,
+    // referencePhoneInput,
     handleAddReference,
     educationDegree,
     educationDepartment,
@@ -520,15 +522,17 @@ export default function Form({
                 onToggle={() => setIsActive4(!isActive4)}
             />
             <References
-                referenceName={referenceName}
-                referenceInstitution={referenceInstitution}
-                referenceEmail={referenceEmail}
-                referencePhone={referencePhone}
+                inputs={inputs}
+                handleInput={handleInput}
+                // referenceName={referenceName}
+                // referenceInstitution={referenceInstitution}
+                // referenceEmail={referenceEmail}
+                // referencePhone={referencePhone}
                 references={references}
-                referenceNameInput={referenceNameInput}
-                referenceInstitutionInput={referenceInstitutionInput}
-                referenceEmailInput={referenceEmailInput}
-                referencePhoneInput={referencePhoneInput}
+                // referenceNameInput={referenceNameInput}
+                // referenceInstitutionInput={referenceInstitutionInput}
+                // referenceEmailInput={referenceEmailInput}
+                // referencePhoneInput={referencePhoneInput}
                 handleAddReference={handleAddReference}
                 isActive={isActive5}
                 onToggle={() => setIsActive5(!isActive5)}
