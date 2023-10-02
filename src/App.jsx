@@ -9,14 +9,14 @@ import Cv from './components/Cv';
 import Form from './components/Form';
 // import Download from './components/Download';
 
-let skills = [];
-let references = [];
-let educationArray = [];
-let workHistory = [];
+let skills = []; //7
+let references = []; //8, 9, 10, 11
+let educationArray = []; //12, 13, 14, 15, 16, 17
+let workHistory = []; //18, 19, 
 
 function App() {
     // Initialise a state for inputs with an array of length 6 with empty string
-    const [inputs, setInputs] = useState(Array(6).fill(''));
+    const [inputs, setInputs] = useState(Array(11).fill(''));
     // Create a function that takes index and input value as arguments and inputs the value by index
     function handleInput(i, inputValue) {
         // Copy the inputs array
@@ -53,16 +53,19 @@ function App() {
     //     setProfileInput(newValue);
     // };
 
-    const [skillsInput, setSkillsInput] = useState('');
+    // const [skillsInput, setSkillsInput] = useState('');
 
-    const handleSkillsInput = (newSkill) => {
-        setSkillsInput(newSkill);
-    };
+    // const handleSkillsInput = (newSkill) => {
+    //     setSkillsInput(newSkill);
+    // };
 
     const handleAddSkill = (event) => {
         event.preventDefault();
-        skills = [...skills, { id: uuidv4(), name: skillsInput }];
-        setSkillsInput('');
+        const inputArray = inputs.slice();
+        skills = [...skills, { id: uuidv4(), name: inputArray[6] }];
+        // setSkillsInput('');
+        inputArray[6] = '';
+        setInputs(inputArray);
     };
 
     const [referenceName, setReferenceName] = useState('');
@@ -222,7 +225,7 @@ function App() {
                 // titleInput={titleInput}
                 // profileInput={profileInput}
                 skills={skills}
-                skillsInput={skillsInput}
+                // skillsInput={skillsInput}
                 referenceName={referenceName}
                 referenceInstitution={referenceInstitution}
                 referenceEmail={referenceEmail}
@@ -235,7 +238,7 @@ function App() {
                 // handleTitleInput={handleTitleInput}
                 // handleProfileInput={handleProfileInput}
                 handleAddSkill={handleAddSkill}
-                handleSkillsInput={handleSkillsInput}
+                // handleSkillsInput={handleSkillsInput}
                 referenceNameInput={referenceNameInput}
                 referenceInstitutionInput={referenceInstitutionInput}
                 referenceEmailInput={referenceEmailInput}

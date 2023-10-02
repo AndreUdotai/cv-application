@@ -290,10 +290,12 @@ function Education({
 }
 
 function Skills({
+    inputs,
+    handleInput,
     skills,
-    skillsInput,
+    // skillsInput,
     handleAddSkill,
-    handleSkillsInput,
+    // handleSkillsInput,
     isActive,
     onToggle,
 }) {
@@ -306,10 +308,14 @@ function Skills({
             {isActive && (
                 <>
                     <div className='skillsForm'>
-                        <Input
+                        <PersonalDetailInput
+                            value={inputs[6]}
+                            handleInput={(e) => handleInput(6, e.target.value)}
+                        />
+                        {/* <Input
                             inputValue={skillsInput}
                             handleInputChange={handleSkillsInput}
-                        />
+                        /> */}
                         <Button
                             name={'Add'}
                             handleAdd={(e) => handleAddSkill(e)}
@@ -387,7 +393,7 @@ export default function Form({
     // titleInput,
     // profileInput,
     skills,
-    skillsInput,
+    // skillsInput,
     referenceName,
     referenceInstitution,
     referenceEmail,
@@ -400,7 +406,7 @@ export default function Form({
     // handleTitleInput,
     // handleProfileInput,
     handleAddSkill,
-    handleSkillsInput,
+    // handleSkillsInput,
     referenceNameInput,
     referenceInstitutionInput,
     referenceEmailInput,
@@ -505,9 +511,11 @@ export default function Form({
             />
             <Skills
                 skills={skills}
-                skillsInput={skillsInput}
+                inputs={inputs}
+                handleInput={handleInput}
+                // skillsInput={skillsInput}
                 handleAddSkill={handleAddSkill}
-                handleSkillsInput={handleSkillsInput}
+                // handleSkillsInput={handleSkillsInput}
                 isActive={isActive4}
                 onToggle={() => setIsActive4(!isActive4)}
             />
