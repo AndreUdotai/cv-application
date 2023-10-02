@@ -4,12 +4,13 @@ import MainSection from './MainSection';
 import PersonalDetails from './PersonalDetails';
 
 function Cv({
-    nameInput,
-    emailInput,
-    phoneInput,
-    addressInput,
-    titleInput,
-    profileInput,
+    inputs,
+    // nameInput,
+    // emailInput,
+    // phoneInput,
+    // addressInput,
+    // titleInput,
+    // profileInput,
     skills,
     references,
     education,
@@ -18,12 +19,13 @@ function Cv({
     return (
         <div className='cv'>
             <PersonalDetails
-                nameInput={nameInput}
-                emailInput={emailInput}
-                phoneInput={phoneInput}
-                addressInput={addressInput}
-                titleInput={titleInput}
-                profileInput={profileInput}
+                inputs={inputs}
+                // nameInput={nameInput}
+                // emailInput={emailInput}
+                // phoneInput={phoneInput}
+                // addressInput={addressInput}
+                // titleInput={titleInput}
+                // profileInput={profileInput}
             />
             <hr />
             <MainSection

@@ -5,24 +5,25 @@ import PersonalInfo from "./PersonalInfo";
 
 
 export default function PersonalDetails({
-    nameInput,
-    emailInput,
-    phoneInput,
-    addressInput,
-    titleInput,
-    profileInput,
+    inputs
+    // nameInput,
+    // emailInput,
+    // phoneInput,
+    // addressInput,
+    // titleInput,
+    // profileInput,
 }) {
     return (
         <>
             <Name
-                nameInput={nameInput}
+                nameInput={inputs[0]}
             />
             <PersonalInfo
-                emailInput={emailInput}
-                phoneInput={phoneInput}
-                addressInput={addressInput}
-                titleInput={titleInput}
-                profileInput={profileInput}
+                emailInput={inputs[1]}
+                phoneInput={inputs[2]}
+                addressInput={inputs[3]}
+                titleInput={inputs[4]}
+                profileInput={inputs[5]}
             />
         </>
     )

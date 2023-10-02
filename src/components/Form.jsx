@@ -20,7 +20,22 @@ function Input({ label, inputValue, handleInputChange, name }) {
     );
 }
 
-function TextArea({ label, inputValue, handleInputChange }) {
+function PersonalDetailInput({ label, value, handleInput }) {
+    return (
+        <div className='inputComponent'>
+            <label className='label'>{label}</label>
+            <input
+                type='text'
+                className='input'
+                value={value}
+                // the handleInput function is called in the PersonalDetailInput component with the needed arguments
+                onChange={handleInput}
+            />
+        </div>
+    );
+}
+
+function TextArea({ label, value, handleInput }) {
     return (
         <div className='inputComponent'>
             <label className='label'>{label}</label>
@@ -28,8 +43,8 @@ function TextArea({ label, inputValue, handleInputChange }) {
                 cols='30'
                 rows='10'
                 className='input'
-                value={inputValue}
-                onChange={(e) => handleInputChange(e.target.value)}
+                value={value}
+                onChange={handleInput}
             ></textarea>
         </div>
     );
@@ -61,18 +76,20 @@ function ListDisplay({ list }) {
 }
 
 function PersonalDetails({
-    nameInput,
-    emailInput,
-    phoneInput,
-    addressInput,
-    titleInput,
-    profileInput,
-    handleInputChange,
-    handleEmailInput,
-    handlePhoneInput,
-    handleAddressInput,
-    handleTitleInput,
-    handleProfileInput,
+    inputs,
+    handleInput,
+    // nameInput,
+    // emailInput,
+    // phoneInput,
+    // addressInput,
+    // titleInput,
+    // profileInput,
+    // handleInputChange,
+    // handleEmailInput,
+    // handlePhoneInput,
+    // handleAddressInput,
+    // handleTitleInput,
+    // handleProfileInput,
     isActive,
     onToggle,
 }) {
@@ -85,35 +102,35 @@ function PersonalDetails({
                 </div>
                 {isActive && (
                     <form>
-                        <Input
+                        <PersonalDetailInput
                             label={'Full name'}
-                            inputValue={nameInput}
-                            handleInputChange={handleInputChange}
+                            value={inputs[0]}
+                            handleInput={(e) => handleInput(0, e.target.value)}
                         />
-                        <Input
+                        <PersonalDetailInput
                             label={'Email'}
-                            inputValue={emailInput}
-                            handleInputChange={handleEmailInput}
+                            value={inputs[1]}
+                            handleInput={(e) => handleInput(1, e.target.value)}
                         />
-                        <Input
+                        <PersonalDetailInput
                             label={'Phone number'}
-                            inputValue={phoneInput}
-                            handleInputChange={handlePhoneInput}
+                            value={inputs[2]}
+                            handleInput={(e) => handleInput(2, e.target.value)}
                         />
-                        <Input
+                        <PersonalDetailInput
                             label={'Address'}
-                            inputValue={addressInput}
-                            handleInputChange={handleAddressInput}
+                            value={inputs[3]}
+                            handleInput={(e) => handleInput(3, e.target.value)}
                         />
-                        <Input
+                        <PersonalDetailInput
                             label={'Professional title'}
-                            inputValue={titleInput}
-                            handleInputChange={handleTitleInput}
+                            value={inputs[4]}
+                            handleInput={(e) => handleInput(4, e.target.value)}
                         />
                         <TextArea
                             label={'Profile'}
-                            inputValue={profileInput}
-                            handleInputChange={handleProfileInput}
+                            value={inputs[5]}
+                            handleInput={(e) => handleInput(5, e.target.value)}
                         />
                     </form>
                 )}
@@ -361,12 +378,14 @@ function References({
 }
 
 export default function Form({
-    nameInput,
-    emailInput,
-    phoneInput,
-    addressInput,
-    titleInput,
-    profileInput,
+    inputs,
+    handleInput,
+    // nameInput,
+    // emailInput,
+    // phoneInput,
+    // addressInput,
+    // titleInput,
+    // profileInput,
     skills,
     skillsInput,
     referenceName,
@@ -374,12 +393,12 @@ export default function Form({
     referenceEmail,
     referencePhone,
     references,
-    handleInputChange,
-    handleEmailInput,
-    handlePhoneInput,
-    handleAddressInput,
-    handleTitleInput,
-    handleProfileInput,
+    // handleInputChange,
+    // handleEmailInput,
+    // handlePhoneInput,
+    // handleAddressInput,
+    // handleTitleInput,
+    // handleProfileInput,
     handleAddSkill,
     handleSkillsInput,
     referenceNameInput,
@@ -425,21 +444,26 @@ export default function Form({
     return (
         <div className='formSection'>
             <div className='formForm'>
-                <p>Fill in your details in the forms below to edit the content of the sample CV.</p>
+                <p>
+                    Fill in your details in the forms below to edit the content
+                    of the sample CV.
+                </p>
             </div>
             <PersonalDetails
-                nameInput={nameInput}
-                emailInput={emailInput}
-                phoneInput={phoneInput}
-                addressInput={addressInput}
-                titleInput={titleInput}
-                profileInput={profileInput}
-                handleInputChange={handleInputChange}
-                handleEmailInput={handleEmailInput}
-                handlePhoneInput={handlePhoneInput}
-                handleAddressInput={handleAddressInput}
-                handleTitleInput={handleTitleInput}
-                handleProfileInput={handleProfileInput}
+                inputs={inputs}
+                handleInput={handleInput}
+                // nameInput={nameInput}
+                // emailInput={emailInput}
+                // phoneInput={phoneInput}
+                // addressInput={addressInput}
+                // titleInput={titleInput}
+                // profileInput={profileInput}
+                // handleInputChange={handleInputChange}
+                // handleEmailInput={handleEmailInput}
+                // handlePhoneInput={handlePhoneInput}
+                // handleAddressInput={handleAddressInput}
+                // handleTitleInput={handleTitleInput}
+                // handleProfileInput={handleProfileInput}
                 isActive={isActive1}
                 onToggle={() => setIsActive1(!isActive1)}
             />

@@ -15,31 +15,43 @@ let educationArray = [];
 let workHistory = [];
 
 function App() {
-    const [nameInput, setNameInput] = useState('');
-    const [emailInput, setEmailInput] = useState('');
-    const [phoneInput, setPhoneInput] = useState('');
-    const [addressInput, setAddressInput] = useState('');
-    const [titleInput, setTitleInput] = useState('');
-    const [profileInput, setProfileInput] = useState('');
+    // Initialise a state for inputs with an array of length 6 with empty string
+    const [inputs, setInputs] = useState(Array(6).fill(''));
+    // Create a function that takes index and input value as arguments and inputs the value by index
+    function handleInput(i, inputValue) {
+        // Copy the inputs array
+        const inputArray = inputs.slice();
+        // set the value of the array items by index to the input value
+        inputArray[i] = inputValue;
+        // set the new value of inputs with the inputArray
+        setInputs(inputArray);
+    }
 
-    const handleInputChange = (newValue) => {
-        setNameInput(newValue);
-    };
-    const handleEmailInput = (newValue) => {
-        setEmailInput(newValue);
-    };
-    const handlePhoneInput = (newValue) => {
-        setPhoneInput(newValue);
-    };
-    const handleAddressInput = (newValue) => {
-        setAddressInput(newValue);
-    };
-    const handleTitleInput = (newValue) => {
-        setTitleInput(newValue);
-    };
-    const handleProfileInput = (newValue) => {
-        setProfileInput(newValue);
-    };
+    // const [nameInput, setNameInput] = useState('');
+    // const [emailInput, setEmailInput] = useState('');
+    // const [phoneInput, setPhoneInput] = useState('');
+    // const [addressInput, setAddressInput] = useState('');
+    // const [titleInput, setTitleInput] = useState('');
+    // const [profileInput, setProfileInput] = useState('');
+
+    // const handleInputChange = (newValue) => {
+    //     setNameInput(newValue);
+    // };
+    // const handleEmailInput = (newValue) => {
+    //     setEmailInput(newValue);
+    // };
+    // const handlePhoneInput = (newValue) => {
+    //     setPhoneInput(newValue);
+    // };
+    // const handleAddressInput = (newValue) => {
+    //     setAddressInput(newValue);
+    // };
+    // const handleTitleInput = (newValue) => {
+    //     setTitleInput(newValue);
+    // };
+    // const handleProfileInput = (newValue) => {
+    //     setProfileInput(newValue);
+    // };
 
     const [skillsInput, setSkillsInput] = useState('');
 
@@ -201,12 +213,14 @@ function App() {
     return (
         <div className='app'>
             <Form
-                nameInput={nameInput}
-                emailInput={emailInput}
-                phoneInput={phoneInput}
-                addressInput={addressInput}
-                titleInput={titleInput}
-                profileInput={profileInput}
+                inputs={inputs}
+                handleInput={handleInput}
+                // nameInput={nameInput}
+                // emailInput={emailInput}
+                // phoneInput={phoneInput}
+                // addressInput={addressInput}
+                // titleInput={titleInput}
+                // profileInput={profileInput}
                 skills={skills}
                 skillsInput={skillsInput}
                 referenceName={referenceName}
@@ -214,12 +228,12 @@ function App() {
                 referenceEmail={referenceEmail}
                 referencePhone={referencePhone}
                 references={references}
-                handleInputChange={handleInputChange}
-                handleEmailInput={handleEmailInput}
-                handlePhoneInput={handlePhoneInput}
-                handleAddressInput={handleAddressInput}
-                handleTitleInput={handleTitleInput}
-                handleProfileInput={handleProfileInput}
+                // handleInputChange={handleInputChange}
+                // handleEmailInput={handleEmailInput}
+                // handlePhoneInput={handlePhoneInput}
+                // handleAddressInput={handleAddressInput}
+                // handleTitleInput={handleTitleInput}
+                // handleProfileInput={handleProfileInput}
                 handleAddSkill={handleAddSkill}
                 handleSkillsInput={handleSkillsInput}
                 referenceNameInput={referenceNameInput}
@@ -258,12 +272,13 @@ function App() {
             />
             {/* <Preview id={'jsx-template'}> */}
             <Cv
-                nameInput={nameInput}
-                emailInput={emailInput}
-                phoneInput={phoneInput}
-                addressInput={addressInput}
-                titleInput={titleInput}
-                profileInput={profileInput}
+                inputs={inputs}
+                // nameInput={nameInput}
+                // emailInput={emailInput}
+                // phoneInput={phoneInput}
+                // addressInput={addressInput}
+                // titleInput={titleInput}
+                // profileInput={profileInput}
                 skills={skills}
                 references={references}
                 education={educationArray}
