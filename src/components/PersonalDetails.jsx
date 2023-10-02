@@ -1,23 +1,11 @@
 /* eslint-disable react/prop-types */
-import Name from "./Name";
-import PersonalInfo from "./PersonalInfo";
+import Name from './Name';
+import PersonalInfo from './PersonalInfo';
 
-
-
-export default function PersonalDetails({
-    inputs
-    // nameInput,
-    // emailInput,
-    // phoneInput,
-    // addressInput,
-    // titleInput,
-    // profileInput,
-}) {
+export default function PersonalDetails({ inputs }) {
     return (
         <>
-            <Name
-                nameInput={inputs[0]}
-            />
+            <Name nameInput={inputs[0]} />
             <PersonalInfo
                 emailInput={inputs[1]}
                 phoneInput={inputs[2]}
@@ -26,5 +14,5 @@ export default function PersonalDetails({
                 profileInput={inputs[5]}
             />
         </>
-    )
+    );
 }

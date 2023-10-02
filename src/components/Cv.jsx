@@ -3,30 +3,10 @@
 import MainSection from './MainSection';
 import PersonalDetails from './PersonalDetails';
 
-function Cv({
-    inputs,
-    // nameInput,
-    // emailInput,
-    // phoneInput,
-    // addressInput,
-    // titleInput,
-    // profileInput,
-    skills,
-    references,
-    education,
-    workHistory,
-}) {
+function Cv({ inputs, skills, references, education, workHistory }) {
     return (
         <div className='cv'>
-            <PersonalDetails
-                inputs={inputs}
-                // nameInput={nameInput}
-                // emailInput={emailInput}
-                // phoneInput={phoneInput}
-                // addressInput={addressInput}
-                // titleInput={titleInput}
-                // profileInput={profileInput}
-            />
+            <PersonalDetails inputs={inputs} />
             <hr />
             <MainSection
                 skills={skills}

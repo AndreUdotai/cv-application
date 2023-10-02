@@ -19,11 +19,7 @@ function Details({ emailInput, phoneInput, addressInput }) {
 function Profile({ titleInput, profileInput }) {
     return (
         <div className='column profile'>
-            <h3>
-                {titleInput
-                    ? titleInput
-                    : 'Business Manager'}
-            </h3>
+            <h3>{titleInput ? titleInput : 'Business Manager'}</h3>
             <p>
                 {profileInput
                     ? profileInput

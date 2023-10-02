@@ -27,73 +27,20 @@ function App() {
         setInputs(inputArray);
     }
 
-    // const [nameInput, setNameInput] = useState('');
-    // const [emailInput, setEmailInput] = useState('');
-    // const [phoneInput, setPhoneInput] = useState('');
-    // const [addressInput, setAddressInput] = useState('');
-    // const [titleInput, setTitleInput] = useState('');
-    // const [profileInput, setProfileInput] = useState('');
-
-    // const handleInputChange = (newValue) => {
-    //     setNameInput(newValue);
-    // };
-    // const handleEmailInput = (newValue) => {
-    //     setEmailInput(newValue);
-    // };
-    // const handlePhoneInput = (newValue) => {
-    //     setPhoneInput(newValue);
-    // };
-    // const handleAddressInput = (newValue) => {
-    //     setAddressInput(newValue);
-    // };
-    // const handleTitleInput = (newValue) => {
-    //     setTitleInput(newValue);
-    // };
-    // const handleProfileInput = (newValue) => {
-    //     setProfileInput(newValue);
-    // };
-
-    // const [skillsInput, setSkillsInput] = useState('');
-
-    // const handleSkillsInput = (newSkill) => {
-    //     setSkillsInput(newSkill);
-    // };
-
     const handleAddSkill = (event) => {
         event.preventDefault();
         const inputArray = inputs.slice();
-        if(inputArray[6]){
-        skills = [...skills, { id: uuidv4(), name: inputArray[6] }];
+        if (inputArray[6]) {
+            skills = [...skills, { id: uuidv4(), name: inputArray[6] }];
         }
         inputArray[6] = '';
         setInputs(inputArray);
     };
 
-    // const [referenceName, setReferenceName] = useState('');
-    // const [referenceInstitution, setReferenceInstitution] = useState('');
-    // const [referenceEmail, setReferenceEmail] = useState('');
-    // const [referencePhone, setReferencePhone] = useState('');
-
-    // const referenceNameInput = (name) => {
-    //     setReferenceName(name)
-    // };
-
-    // const referenceInstitutionInput = (name) => {
-    //     setReferenceInstitution(name)
-    // }
-
-    // const referenceEmailInput = (email) => {
-    //     setReferenceEmail(email)
-    // };
-
-    // const referencePhoneInput = (phone) => {
-    //     setReferencePhone(phone)
-    // };
-
     const handleAddReference = (e) => {
         e.preventDefault();
         const inputArray = inputs.slice();
-        if(inputArray[7]){
+        if (inputArray[7]) {
             references = [
                 ...references,
                 {
@@ -110,131 +57,58 @@ function App() {
         inputArray[9] = '';
         inputArray[10] = '';
         setInputs(inputArray);
-        // setReferenceName('');
-        // setReferenceInstitution('');
-        // setReferenceEmail('');
-        // setReferencePhone('');
     };
-
-    // const [educationDegree, setEducationDegree] = useState('');
-    // const [educationDepartment, setEducationDepartment] = useState('');
-    // const [educationSchool, setEducationSchool] = useState('');
-    // const [educationLocation, setEducationLocation] = useState('');
-    // const [educationStart, setEducationStart] = useState('');
-    // const [educationEnd, setEducationEnd] = useState('');
-
-    // const handleDegreeInput = (degree) => {
-    //     setEducationDegree(degree)
-    // };
-
-    // const handleDepartmentInput = (department) => {
-    //     setEducationDepartment(department)
-    // }
-
-    // const handleSchoolInput = (school) => {
-    //     setEducationSchool(school)
-    // };
-
-    // const handleLocationInput = (location) => {
-    //     setEducationLocation(location)
-    // };
-
-    // const handleStartInput = (start) => {
-    //     setEducationStart(start)
-    // }
-
-    // const handleEndInput = (end) => {
-    //     setEducationEnd(end)
-    // }
 
     const handleAddEducation = (e) => {
         e.preventDefault();
         const inputArray = inputs.slice();
-        if(inputArray[11]){
-            educationArray = [...educationArray, {
-                id: uuidv4(),
-                degree: inputArray[11],
-                department: inputArray[12],
-                school: inputArray[13],
-                location: inputArray[14],
-                start: inputArray[15],
-                end: inputArray[16],
-            }]
+        if (inputArray[11]) {
+            educationArray = [
+                ...educationArray,
+                {
+                    id: uuidv4(),
+                    degree: inputArray[11],
+                    department: inputArray[12],
+                    school: inputArray[13],
+                    location: inputArray[14],
+                    start: inputArray[15],
+                    end: inputArray[16],
+                },
+            ];
             inputArray[11] = '';
             inputArray[12] = '';
             inputArray[13] = '';
             inputArray[14] = '';
             inputArray[15] = '';
             inputArray[16] = '';
-        setInputs(inputArray);
-        
+            setInputs(inputArray);
         }
-        // setEducationDegree('');
-        // setEducationDepartment('');
-        // setEducationSchool('')
-        // setEducationLocation('');
-        // setEducationStart('')
-        // setEducationEnd('')
     };
-
-    // const [workPosition, setWorkPosition] = useState('');
-    // const [workName, setWorkName] = useState('');
-    // const [workLocation, setWorkLocation] = useState('');
-    // const [workStart, setWorkStart] = useState('');
-    // const [workEnd, setWorkEnd] = useState('');
-    // const [workAchievement, setWorkAchievement] = useState('');
-
-    // const handleWorkPosition = (work) => {
-    //     setWorkPosition(work)
-    // };
-
-    // const handleWorkName = (department) => {
-    //     setWorkName(department)
-    // }
-
-    // const handleWorkLocation = (school) => {
-    //     setWorkLocation(school)
-    // };
-
-    // const handleWorkStart = (location) => {
-    //     setWorkStart(location)
-    // };
-
-    // const handleWorkEnd = (start) => {
-    //     setWorkEnd(start)
-    // }
-
-    // const handleWorkAchievement = (end) => {
-    //     setWorkAchievement(end)
-    // }
 
     const handleAddWork = (e) => {
         e.preventDefault();
         const inputArray = inputs.slice();
-        if(inputArray[17]){
-            workHistory = [...workHistory, {
-                id: uuidv4(),
-                position:       inputArray[17],
-                name:           inputArray[18],
-                location:       inputArray[19],
-                start:          inputArray[20],
-                end:            inputArray[21],
-                achievement:    inputArray[22],
-            }]
+        if (inputArray[17]) {
+            workHistory = [
+                ...workHistory,
+                {
+                    id: uuidv4(),
+                    position: inputArray[17],
+                    name: inputArray[18],
+                    location: inputArray[19],
+                    start: inputArray[20],
+                    end: inputArray[21],
+                    achievement: inputArray[22],
+                },
+            ];
             inputArray[17] = '';
             inputArray[18] = '';
             inputArray[19] = '';
             inputArray[20] = '';
             inputArray[21] = '';
             inputArray[22] = '';
-        setInputs(inputArray);
+            setInputs(inputArray);
         }
-        // setWorkPosition('');
-        // setWorkName('');
-        // setWorkLocation('')
-        // setWorkStart('');
-        // setWorkEnd('');
-        // setWorkAchievement('');
     };
 
     return (
@@ -242,70 +116,18 @@ function App() {
             <Form
                 inputs={inputs}
                 handleInput={handleInput}
-                // nameInput={nameInput}
-                // emailInput={emailInput}
-                // phoneInput={phoneInput}
-                // addressInput={addressInput}
-                // titleInput={titleInput}
-                // profileInput={profileInput}
                 skills={skills}
-                // skillsInput={skillsInput}
-                // referenceName={referenceName}
-                // referenceInstitution={referenceInstitution}
-                // referenceEmail={referenceEmail}
-                // referencePhone={referencePhone}
-                references={references}
-                // handleInputChange={handleInputChange}
-                // handleEmailInput={handleEmailInput}
-                // handlePhoneInput={handlePhoneInput}
-                // handleAddressInput={handleAddressInput}
-                // handleTitleInput={handleTitleInput}
-                // handleProfileInput={handleProfileInput}
                 handleAddSkill={handleAddSkill}
-                // handleSkillsInput={handleSkillsInput}
-                // referenceNameInput={referenceNameInput}
-                // referenceInstitutionInput={referenceInstitutionInput}
-                // referenceEmailInput={referenceEmailInput}
-                // referencePhoneInput={referencePhoneInput}
+                references={references}
                 handleAddReference={handleAddReference}
-                // educationDegree={educationDegree}
-                // educationDepartment= {educationDepartment}
-                // educationSchool={educationSchool}
-                // educationLocation={educationLocation}
-                // educationStart={educationStart}
-                // educationEnd={educationEnd}
                 educationArray={educationArray}
-                // handleDegreeInput={handleDegreeInput}
-                // handleDepartmentInput={handleDepartmentInput}
-                // handleSchoolInput={handleSchoolInput}
-                // handleLocationInput={handleLocationInput}
-                // handleStartInput={handleStartInput}
-                // handleEndInput={handleEndInput}
                 handleAddEducation={handleAddEducation}
-                // workPosition={workPosition}
-                // workName={workName}
-                // workLocation={workLocation}
-                // workStart={workStart}
-                // workEnd={workEnd}
-                // workAchievement={workAchievement}
                 workHistory={workHistory}
-                // handleWorkPosition={handleWorkPosition}
-                // handleWorkName={handleWorkName}
-                // handleWorkLocation={handleWorkLocation}
-                // handleWorkStart={handleWorkStart}
-                // handleWorkEnd={handleWorkEnd}
-                // handleWorkAchievement={handleWorkAchievement}
                 handleAddWork={handleAddWork}
             />
             {/* <Preview id={'jsx-template'}> */}
             <Cv
                 inputs={inputs}
-                // nameInput={nameInput}
-                // emailInput={emailInput}
-                // phoneInput={phoneInput}
-                // addressInput={addressInput}
-                // titleInput={titleInput}
-                // profileInput={profileInput}
                 skills={skills}
                 references={references}
                 education={educationArray}
