@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 
-import MainSection from './MainSection';
-import PersonalDetails from './PersonalDetails';
+import MainSection from './MainSection/MainSection';
+import PersonalDetails from './PersonalDetails/PersonalDetails';
 
 function Cv({ inputs, skills, references, education, workHistory }) {
     return (

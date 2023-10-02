@@ -5,8 +5,8 @@ import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import './App.css';
-import Cv from './components/Cv';
-import Form from './components/Form';
+import Cv from './components/Cv/Cv';
+import Form from './components/Form/Form';
 // import Download from './components/Download';
 
 let skills = []; //7
