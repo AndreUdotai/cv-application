@@ -1,7 +1,5 @@
 /* eslint-disable react/prop-types */
 
-import '../App.css';
-
 function Details({ emailInput, phoneInput, addressInput }) {
     return (
         <div className='details'>
