@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { FaTrashCan } from 'react-icons/fa6';
 
 export default function ListDisplay({ list }) {
     return (
@@ -7,7 +8,7 @@ export default function ListDisplay({ list }) {
                 {list.map((item) => (
                     <li key={item.id}>
                         <p>{item.name}</p>
-                        {/* <FaXmark /> */}
+                        <FaTrashCan onClick={()=> alert('Clicked on delete')} />
                     </li>
                 ))}
             </ul>
