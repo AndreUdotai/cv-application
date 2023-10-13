@@ -10,6 +10,7 @@ export default function References({
     handleInput,
     references,
     handleAddReference,
+    handleDeleteReference,
     isActive,
     onToggle,
 }) {
@@ -47,7 +48,7 @@ export default function References({
                             handleAdd={(e) => handleAddReference(e)}
                         />
                     </div>
-                    <ListDisplay list={references} />
+                    <ListDisplay list={references} handleDeleteItem={handleDeleteReference}/>
                 </>
             )}
         </div>

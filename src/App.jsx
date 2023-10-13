@@ -10,15 +10,17 @@ import Form from './components/Form/Form';
 // import Download from './components/Download';
 
 let skillsArray = []; //7
-let references = []; //8, 9, 10, 11
+let referencesArray = []; //8, 9, 10, 11
 let educationArray = []; //12, 13, 14, 15, 16, 17
 let workHistory = []; //18, 19, 20, 21, 22, 23
 
 function App() {
     // Initialise a state for inputs with an array of length 6 with empty string
     const [inputs, setInputs] = useState(Array(17).fill(''));
-    // Create a state for skills
+    // Create a state for skills Array
     const [skills, setSkills] = useState(skillsArray);
+    // Create a state for references Array
+    const [references, setReferences] = useState(referencesArray);
 
     // Create a function that takes index and input value as arguments and inputs the value by index
     function handleInput(i, inputValue) {
@@ -51,9 +53,10 @@ function App() {
  
     const handleAddReference = (e) => {
         e.preventDefault();
+        let allReferences;
         const inputArray = inputs.slice();
         if (inputArray[7]) {
-            references = [
+            allReferences = [
                 ...references,
                 {
                     id: uuidv4(),
@@ -69,7 +72,14 @@ function App() {
         inputArray[9] = '';
         inputArray[10] = '';
         setInputs(inputArray);
+        setReferences(allReferences);
     };
+
+    const handleDeleteReference = (refToRemove) => {
+        setReferences(
+            references.filter(ref => ref.id !== refToRemove)
+        )
+    }
 
     const handleAddEducation = (e) => {
         e.preventDefault();
@@ -133,6 +143,7 @@ function App() {
                 handleDeleteSkill={handleDeleteSkill}
                 references={references}
                 handleAddReference={handleAddReference}
+                handleDeleteReference={handleDeleteReference}
                 educationArray={educationArray}
                 handleAddEducation={handleAddEducation}
                 workHistory={workHistory}
