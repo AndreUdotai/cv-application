@@ -12,7 +12,7 @@ import Form from './components/Form/Form';
 let skillsArray = []; //7
 let referencesArray = []; //8, 9, 10, 11
 let educationArray = []; //12, 13, 14, 15, 16, 17
-let workHistory = []; //18, 19, 20, 21, 22, 23
+let workHistoryArray = []; //18, 19, 20, 21, 22, 23
 
 function App() {
     // Initialise a state for inputs with an array of length 6 with empty string
@@ -22,7 +22,9 @@ function App() {
     // Create a state for references Array
     const [references, setReferences] = useState(referencesArray);
     // Create a state for education array
-    const [education, setEducation] = useState(educationArray)
+    const [education, setEducation] = useState(educationArray);
+    // Create a state for workHistory array
+    const [workHistory, setWorkHistory] = useState(workHistoryArray);
 
     // Create a function that takes index and input value as arguments and inputs the value by index
     function handleInput(i, inputValue) {
@@ -120,8 +122,9 @@ function App() {
     const handleAddWork = (e) => {
         e.preventDefault();
         const inputArray = inputs.slice();
+        let allWorkHistory;
         if (inputArray[17]) {
-            workHistory = [
+            allWorkHistory = [
                 ...workHistory,
                 {
                     id: uuidv4(),
@@ -140,8 +143,15 @@ function App() {
             inputArray[21] = '';
             inputArray[22] = '';
             setInputs(inputArray);
+            setWorkHistory(allWorkHistory);
         }
     };
+
+    const handleDeleteWork = (workToRemove) => {
+        setWorkHistory(
+            workHistory.filter(work => work.id !== workToRemove)
+        )
+    }
 
     return (
         <div className='app'>
@@ -159,6 +169,7 @@ function App() {
                 handleDeleteEducation={handleDeleteEducation}
                 workHistory={workHistory}
                 handleAddWork={handleAddWork}
+                handleDeleteWork={handleDeleteWork}
             />
             {/* <Preview id={'jsx-template'}> */}
             <Cv

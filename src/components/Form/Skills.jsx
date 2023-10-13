@@ -34,16 +34,6 @@ export default function Skills({
                             handleAdd={(e) => handleAddSkill(e)}
                         />
                     </div>
-                    {/* <div className='listDisplay'>
-                        <ul>
-                            {skills.map((item) => (
-                                <li key={item.id}>
-                                    <p>{item.name}</p>
-                                    <FaTrashCan onClick={()=>handleDeleteSkill(item.id)} />
-                                </li>
-                            ))}
-                        </ul>
-                    </div> */}
                     <ListDisplay list={skills} handleDeleteItem={handleDeleteSkill} />
                 </>
             )}

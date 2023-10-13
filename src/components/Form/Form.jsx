@@ -22,6 +22,7 @@ export default function Form({
     handleDeleteEducation,
     workHistory,
     handleAddWork,
+    handleDeleteWork,
 }) {
     const [isActive1, setIsActive1] = useState(false);
     const [isActive2, setIsActive2] = useState(false);
@@ -48,6 +49,7 @@ export default function Form({
                 handleInput={handleInput}
                 workHistory={workHistory}
                 handleAddWork={handleAddWork}
+                handleDeleteWork={handleDeleteWork}
                 isActive={isActive2}
                 onToggle={() => setIsActive2(!isActive2)}
             />

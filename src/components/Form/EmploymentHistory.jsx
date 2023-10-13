@@ -3,12 +3,14 @@ import { FaAngleDown } from 'react-icons/fa6';
 import { FaAngleUp } from 'react-icons/fa6';
 import Input from './Input';
 import Button from './Button';
+import ListDisplay from './ListDisplay';
 
 export default function EmploymentHistory({
     inputs,
     handleInput,
     workHistory,
     handleAddWork,
+    handleDeleteWork,
     isActive,
     onToggle,
 }) {
@@ -56,13 +58,7 @@ export default function EmploymentHistory({
                             handleAdd={(e) => handleAddWork(e)}
                         />
                     </form>
-                    <div className='listDisplay'>
-                        <ul>
-                            {workHistory.map((item) => (
-                                <li key={item.id}>{item.position}</li>
-                            ))}
-                        </ul>
-                    </div>
+                    <ListDisplay list={workHistory} handleDeleteItem={handleDeleteWork} />
                 </>
             )}
         </div>
