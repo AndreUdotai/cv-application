@@ -12,8 +12,9 @@ export default function Form({
     inputs,
     handleInput,
     skills,
-    references,
     handleAddSkill,
+    handleDeleteSkill,
+    references,
     handleAddReference,
     educationArray,
     handleAddEducation,
@@ -61,6 +62,7 @@ export default function Form({
                 inputs={inputs}
                 handleInput={handleInput}
                 handleAddSkill={handleAddSkill}
+                handleDeleteSkill={handleDeleteSkill}
                 isActive={isActive4}
                 onToggle={() => setIsActive4(!isActive4)}
             />

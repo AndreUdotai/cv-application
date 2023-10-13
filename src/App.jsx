@@ -9,7 +9,7 @@ import Cv from './components/Cv/Cv';
 import Form from './components/Form/Form';
 // import Download from './components/Download';
 
-let skills = []; //7
+let skillsArray = []; //7
 let references = []; //8, 9, 10, 11
 let educationArray = []; //12, 13, 14, 15, 16, 17
 let workHistory = []; //18, 19, 20, 21, 22, 23
@@ -17,6 +17,9 @@ let workHistory = []; //18, 19, 20, 21, 22, 23
 function App() {
     // Initialise a state for inputs with an array of length 6 with empty string
     const [inputs, setInputs] = useState(Array(17).fill(''));
+    // Create a state for skills
+    const [skills, setSkills] = useState(skillsArray);
+
     // Create a function that takes index and input value as arguments and inputs the value by index
     function handleInput(i, inputValue) {
         // Copy the inputs array
@@ -29,14 +32,23 @@ function App() {
 
     const handleAddSkill = (event) => {
         event.preventDefault();
+        let allSkills;
         const inputArray = inputs.slice();
         if (inputArray[6]) {
-            skills = [...skills, { id: uuidv4(), name: inputArray[6] }];
+            allSkills = [...skills, { id: uuidv4(), name: inputArray[6] }];
         }
         inputArray[6] = '';
         setInputs(inputArray);
+        setSkills(allSkills);
     };
 
+    // Create a delete function for skills array
+    const handleDeleteSkill = (skillToRemove) => {
+        setSkills(
+            skills.filter(skill => skill.id !== skillToRemove )
+        )
+    }
+ 
     const handleAddReference = (e) => {
         e.preventDefault();
         const inputArray = inputs.slice();
@@ -118,6 +130,7 @@ function App() {
                 handleInput={handleInput}
                 skills={skills}
                 handleAddSkill={handleAddSkill}
+                handleDeleteSkill={handleDeleteSkill}
                 references={references}
                 handleAddReference={handleAddReference}
                 educationArray={educationArray}

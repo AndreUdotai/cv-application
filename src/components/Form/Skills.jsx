@@ -4,12 +4,15 @@ import { FaAngleUp } from 'react-icons/fa6';
 import Input from './Input';
 import Button from './Button';
 import ListDisplay from './ListDisplay';
+// import { FaTrashCan } from 'react-icons/fa6';
+
 
 export default function Skills({
     inputs,
     handleInput,
     skills,
     handleAddSkill,
+    handleDeleteSkill,
     isActive,
     onToggle,
 }) {
@@ -31,7 +34,17 @@ export default function Skills({
                             handleAdd={(e) => handleAddSkill(e)}
                         />
                     </div>
-                    <ListDisplay list={skills} />
+                    {/* <div className='listDisplay'>
+                        <ul>
+                            {skills.map((item) => (
+                                <li key={item.id}>
+                                    <p>{item.name}</p>
+                                    <FaTrashCan onClick={()=>handleDeleteSkill(item.id)} />
+                                </li>
+                            ))}
+                        </ul>
+                    </div> */}
+                    <ListDisplay list={skills} handleDeleteItem={handleDeleteSkill} />
                 </>
             )}
         </div>
