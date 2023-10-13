@@ -17,8 +17,9 @@ export default function Form({
     references,
     handleAddReference,
     handleDeleteReference,
-    educationArray,
+    education,
     handleAddEducation,
+    handleDeleteEducation,
     workHistory,
     handleAddWork,
 }) {
@@ -53,8 +54,9 @@ export default function Form({
             <Education
                 inputs={inputs}
                 handleInput={handleInput}
-                educationArray={educationArray}
+                education={education}
                 handleAddEducation={handleAddEducation}
+                handleDeleteEducation={handleDeleteEducation}
                 isActive={isActive3}
                 onToggle={() => setIsActive3(!isActive3)}
             />

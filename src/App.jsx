@@ -21,6 +21,8 @@ function App() {
     const [skills, setSkills] = useState(skillsArray);
     // Create a state for references Array
     const [references, setReferences] = useState(referencesArray);
+    // Create a state for education array
+    const [education, setEducation] = useState(educationArray)
 
     // Create a function that takes index and input value as arguments and inputs the value by index
     function handleInput(i, inputValue) {
@@ -83,10 +85,11 @@ function App() {
 
     const handleAddEducation = (e) => {
         e.preventDefault();
+        let allEducation;
         const inputArray = inputs.slice();
         if (inputArray[11]) {
-            educationArray = [
-                ...educationArray,
+            allEducation = [
+                ...education,
                 {
                     id: uuidv4(),
                     degree: inputArray[11],
@@ -104,8 +107,15 @@ function App() {
             inputArray[15] = '';
             inputArray[16] = '';
             setInputs(inputArray);
+            setEducation(allEducation);
         }
     };
+
+    const handleDeleteEducation = (eduToRemove) => {
+        setEducation(
+            education.filter(education => education.id !== eduToRemove)
+        )
+    }
 
     const handleAddWork = (e) => {
         e.preventDefault();
@@ -144,8 +154,9 @@ function App() {
                 references={references}
                 handleAddReference={handleAddReference}
                 handleDeleteReference={handleDeleteReference}
-                educationArray={educationArray}
+                education={education}
                 handleAddEducation={handleAddEducation}
+                handleDeleteEducation={handleDeleteEducation}
                 workHistory={workHistory}
                 handleAddWork={handleAddWork}
             />
@@ -154,7 +165,7 @@ function App() {
                 inputs={inputs}
                 skills={skills}
                 references={references}
-                education={educationArray}
+                education={education}
                 workHistory={workHistory}
             />
             {/* </Preview> */}

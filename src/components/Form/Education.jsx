@@ -3,12 +3,16 @@ import { FaAngleDown } from 'react-icons/fa6';
 import { FaAngleUp } from 'react-icons/fa6';
 import Input from './Input';
 import Button from './Button';
+import ListDisplay from './ListDisplay';
+// import { FaTrashCan } from 'react-icons/fa6';
+
 
 export default function Education({
     inputs,
     handleInput,
-    educationArray,
+    education,
     handleAddEducation,
+    handleDeleteEducation,
     isActive,
     onToggle,
 }) {
@@ -56,13 +60,28 @@ export default function Education({
                             handleAdd={(e) => handleAddEducation(e)}
                         />
                     </div>
-                    <div className='listDisplay'>
+                    <ListDisplay list={education} handleDeleteItem={handleDeleteEducation}/>
+                    {/* <div className='listDisplay'>
                         <ul>
-                            {educationArray.map((item) => (
+                            {education.map((item) => (
+                                <li key={item.id}>
+                                    <p>{item.degree}</p>
+                                    <FaTrashCan
+                                        onClick={() =>
+                                            handleDeleteEducation(item.id)
+                                        }
+                                    />
+                                </li>
+                            ))}
+                        </ul>
+                    </div> */}
+                    {/* <div className='listDisplay'>
+                        <ul>
+                            {education.map((item) => (
                                 <li key={item.id}>{item.degree}</li>
                             ))}
                         </ul>
-                    </div>
+                    </div> */}
                 </>
             )}
         </div>

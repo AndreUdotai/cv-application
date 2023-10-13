@@ -7,7 +7,7 @@ export default function ListDisplay({ list, handleDeleteItem }) {
             <ul>
                 {list.map((item) => (
                     <li key={item.id}>
-                        <p>{item.name}</p>
+                        {item.degree ? <p>{item.degree}</p> : <p>{item.name}</p> }
                         <FaTrashCan onClick={()=>handleDeleteItem(item.id)} />
                     </li>
                 ))}
