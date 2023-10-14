@@ -46,11 +46,13 @@ export default function Skills({
                                     {item.isActive ? (
                                         <div>
                                             <input
+                                                className='input'
                                                 type='text'
                                                 value={item.name}
                                                 onChange={(e) => handleSkillChange(e, item.id)}
                                             />
                                             <button
+                                                className='button'
                                                 type='button'
                                                 onClick={() => handleSkillActiveChange(item.id, false)}
                                             >
@@ -58,11 +60,11 @@ export default function Skills({
                                             </button>
                                         </div>
                                     ) : (
-                                        <div>
+                                        <div className='listItem'>
                                             <p>{item.name}</p>
-                                            <div className='updateIcons'>
-                                                <FaPencil onClick={() => handleSkillActiveChange(item.id, true)}/>
-                                                <FaTrashCan onClick={() => handleDeleteSkill(item.id,)}/>
+                                            <div>
+                                                <FaPencil className='editIcon' onClick={() => handleSkillActiveChange(item.id, true)}/>
+                                                <FaTrashCan className='deleteIcon' onClick={() => handleDeleteSkill(item.id,)}/>
                                             </div>
                                         </div>
                                     )}

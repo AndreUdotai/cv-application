@@ -221,14 +221,27 @@ textarea:focus {
     display: flex;
     flex-direction: column;
     /* justify-content: space-between; */
-    align-items: center;
+    /* align-items: center; */
 }
 
-/* .listDisplay.updateIcons {
+.listItem {
     display: flex;
-    width: 20%;
-    gap: 10px;
-} */
+    justify-content: space-between;
+    /* margin: 10px 0px; */
+}
+
+.updateIcons:first-child {
+    margin-right: 10px;
+    background-color: red;
+}
+
+.editIcon {
+    margin-right: 10px;
+}
+
+.editIcon, .deleteIcon:hover {
+    cursor: pointer;
+}
 
 .iconHeader {
     display: flex;
