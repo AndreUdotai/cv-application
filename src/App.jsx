@@ -41,7 +41,7 @@ function App() {
         let nextSkills;
         const inputArray = inputs.slice();
         if (inputArray[6]) {
-            nextSkills = [...skills, { id: uuidv4(), name: inputArray[6] }];
+            nextSkills = [...skills, { id: uuidv4(), name: inputArray[6], isActive: false }]; // isActive is added to track the active state for each skill
         }
         inputArray[6] = '';
         setInputs(inputArray);
@@ -68,6 +68,17 @@ function App() {
         })
         setSkills(nextSkills);
     }
+
+    // 
+    const handleSkillActiveChange = (skillId, isActive) => {
+        const updatedSkills = skills.map((item) => {
+            if (item.id === skillId) {
+                return { ...item, isActive: isActive };
+            }
+            return item;
+        });
+        setSkills(updatedSkills);
+    };
 
     const handleAddReference = (e) => {
         e.preventDefault();
@@ -176,6 +187,7 @@ function App() {
                 handleAddSkill={handleAddSkill}
                 handleDeleteSkill={handleDeleteSkill}
                 handleSkillChange={handleSkillChange}
+                handleSkillActiveChange={handleSkillActiveChange}
                 references={references}
                 handleAddReference={handleAddReference}
                 handleDeleteReference={handleDeleteReference}

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 /* eslint-disable react/prop-types */
 import { FaAngleDown } from 'react-icons/fa6';
 import { FaAngleUp } from 'react-icons/fa6';
@@ -15,10 +15,11 @@ export default function Skills({
     handleAddSkill,
     handleDeleteSkill,
     handleSkillChange,
+    handleSkillActiveChange,
     isActive,
     onToggle,
 }) {
-    const [isActive1, setIsActive1] = useState(false);
+    // const [isActive1, setIsActive1] = useState(false);
 
     return (
         <div className='form'>
@@ -42,7 +43,7 @@ export default function Skills({
                         <ul>
                             {skills.map((item) => (
                                 <li key={item.id}>
-                                    {isActive1 ? (
+                                    {item.isActive ? (
                                         <div>
                                             <input
                                                 type='text'
@@ -51,7 +52,7 @@ export default function Skills({
                                             />
                                             <button
                                                 type='button'
-                                                onClick={() => setIsActive1(false)}
+                                                onClick={() => handleSkillActiveChange(item.id, false)}
                                             >
                                                 Close
                                             </button>
@@ -60,7 +61,7 @@ export default function Skills({
                                         <div>
                                             <p>{item.name}</p>
                                             <div className='updateIcons'>
-                                                <FaPencil onClick={() => setIsActive1(true)}/>
+                                                <FaPencil onClick={() => handleSkillActiveChange(item.id, true)}/>
                                                 <FaTrashCan onClick={() => handleDeleteSkill(item.id,)}/>
                                             </div>
                                         </div>
