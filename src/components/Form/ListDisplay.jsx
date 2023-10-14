@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { FaTrashCan } from 'react-icons/fa6';
+import { FaPencil } from 'react-icons/fa6';
 
 export default function ListDisplay({ list, handleDeleteItem }) {
     return (
@@ -8,7 +9,10 @@ export default function ListDisplay({ list, handleDeleteItem }) {
                 {list.map((item) => (
                     <li key={item.id}>
                         {item.degree ? <p>{item.degree}</p> : <p>{item.name}</p> }
-                        <FaTrashCan onClick={()=>handleDeleteItem(item.id)} />
+                        <div className='updateIcons'>
+                            <FaPencil />
+                            <FaTrashCan onClick={()=>handleDeleteItem(item.id)} />
+                        </div>
                     </li>
                 ))}
             </ul>

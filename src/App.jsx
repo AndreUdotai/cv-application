@@ -38,14 +38,14 @@ function App() {
 
     const handleAddSkill = (event) => {
         event.preventDefault();
-        let allSkills;
+        let nextSkills;
         const inputArray = inputs.slice();
         if (inputArray[6]) {
-            allSkills = [...skills, { id: uuidv4(), name: inputArray[6] }];
+            nextSkills = [...skills, { id: uuidv4(), name: inputArray[6] }];
         }
         inputArray[6] = '';
         setInputs(inputArray);
-        setSkills(allSkills);
+        setSkills(nextSkills);
     };
 
     // Create a delete function for skills array
@@ -54,7 +54,21 @@ function App() {
             skills.filter(skill => skill.id !== skillToRemove )
         )
     }
- 
+
+    // Create an edit function for skills array
+    const handleSkillChange = (e, skillToUpdate) => {
+        const nextSkills = skills.map((skill) => {
+            if(skill.id === skillToUpdate){
+                return {
+                    ...skill,
+                    name: e.target.value
+                }
+            }
+            return skill;
+        })
+        setSkills(nextSkills);
+    }
+
     const handleAddReference = (e) => {
         e.preventDefault();
         let allReferences;
@@ -161,6 +175,7 @@ function App() {
                 skills={skills}
                 handleAddSkill={handleAddSkill}
                 handleDeleteSkill={handleDeleteSkill}
+                handleSkillChange={handleSkillChange}
                 references={references}
                 handleAddReference={handleAddReference}
                 handleDeleteReference={handleDeleteReference}

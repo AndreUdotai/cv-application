@@ -14,6 +14,7 @@ export default function Form({
     skills,
     handleAddSkill,
     handleDeleteSkill,
+    handleSkillChange,
     references,
     handleAddReference,
     handleDeleteReference,
@@ -68,6 +69,7 @@ export default function Form({
                 handleInput={handleInput}
                 handleAddSkill={handleAddSkill}
                 handleDeleteSkill={handleDeleteSkill}
+                handleSkillChange={handleSkillChange}
                 isActive={isActive4}
                 onToggle={() => setIsActive4(!isActive4)}
             />
