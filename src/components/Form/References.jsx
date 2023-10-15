@@ -3,7 +3,6 @@ import { FaAngleDown } from 'react-icons/fa6';
 import { FaAngleUp } from 'react-icons/fa6';
 import Input from './Input';
 import Button from './Button';
-// import ListDisplay from './ListDisplay';
 import { FaTrashCan } from 'react-icons/fa6';
 import { FaPencil } from 'react-icons/fa6';
 
@@ -13,8 +12,7 @@ export default function References({
     references,
     handleAddReference,
     handleDeleteReference,
-    handleReferenceChange,
-    // handleRefActiveChange,
+    handleUpdateItem,
     handleArrayItemActiveChange,
     isActive,
     onToggle,
@@ -54,63 +52,106 @@ export default function References({
                         />
                     </div>
                     <div className='listDisplay'>
-    <ul>
-        {references.map((item) => (
-            <li key={item.id}>
-                {item.isActive ? (
-                    <div>
-                        <input
-                            className='input'
-                            type='text'
-                            name='name'
-                            value={item.name}
-                            onChange={(e) => handleReferenceChange(e, item.id)}
-                        />
-                        <input
-                            className='input'
-                            type='text'
-                            name='institution'
-                            value={item.institution}
-                            onChange={(e) => handleReferenceChange(e, item.id)}
-                        />
-                        <input
-                            className='input'
-                            type='text'
-                            name='email'
-                            value={item.email}
-                            onChange={(e) => handleReferenceChange(e, item.id)}
-                        />
-                        <input
-                            className='input'
-                            type='text'
-                            name='phone'
-                            value={item.phone}
-                            onChange={(e) => handleReferenceChange(e, item.id)}
-                        />
-                        <button
-                            className='button'
-                            type='button'
-                            // onClick={() => handleRefActiveChange(item.id, false)}
-                            onClick={() => handleArrayItemActiveChange(item.id, 'references', references, false)}
-                        >
-                            Close
-                        </button>
+                        <ul>
+                            {references.map((item) => (
+                                <li key={item.id}>
+                                    {item.isActive ? (
+                                        <div>
+                                            <input
+                                                className='input'
+                                                type='text'
+                                                name='name'
+                                                value={item.name}
+                                                onChange={(e) =>
+                                                    handleUpdateItem(
+                                                        e,
+                                                        'references',
+                                                        item.id,
+                                                    )
+                                                }
+                                            />
+                                            <input
+                                                className='input'
+                                                type='text'
+                                                name='institution'
+                                                value={item.institution}
+                                                onChange={(e) =>
+                                                    handleUpdateItem(
+                                                        e,
+                                                        'references',
+                                                        item.id,
+                                                    )
+                                                }
+                                            />
+                                            <input
+                                                className='input'
+                                                type='text'
+                                                name='email'
+                                                value={item.email}
+                                                onChange={(e) =>
+                                                    handleUpdateItem(
+                                                        e,
+                                                        'references',
+                                                        item.id,
+                                                    )
+                                                }
+                                            />
+                                            <input
+                                                className='input'
+                                                type='text'
+                                                name='phone'
+                                                value={item.phone}
+                                                onChange={(e) =>
+                                                    handleUpdateItem(
+                                                        e,
+                                                        'references',
+                                                        item.id,
+                                                    )
+                                                }
+                                            />
+                                            <button
+                                                className='button'
+                                                type='button'
+                                                onClick={() =>
+                                                    handleArrayItemActiveChange(
+                                                        item.id,
+                                                        'references',
+                                                        false,
+                                                    )
+                                                }
+                                            >
+                                                Close
+                                            </button>
+                                        </div>
+                                    ) : (
+                                        <div className='listItem'>
+                                            <p>{item.name}</p>
+                                            <div>
+                                                <FaPencil
+                                                    className='editIcon'
+                                                    onClick={() =>
+                                                        handleArrayItemActiveChange(
+                                                            item.id,
+                                                            'references',
+                                                            true,
+                                                        )
+                                                    }
+                                                />
+                                                <FaTrashCan
+                                                    className='deleteIcon'
+                                                    onClick={() =>
+                                                        handleDeleteReference(
+                                                            item.id,
+                                                        )
+                                                    }
+                                                />
+                                            </div>
+                                        </div>
+                                    )}
+                                </li>
+                            ))}
+                        </ul>
                     </div>
-                ) : (
-                    <div className='listItem'>
-                        <p>{item.name}</p>
-                        <div>
-                            {/* <FaPencil className='editIcon' onClick={() => handleRefActiveChange(item.id, true)}/> */}
-                            <FaPencil className='editIcon' onClick={() => handleArrayItemActiveChange(item.id, 'references', references, true)}/>
-                            <FaTrashCan className='deleteIcon' onClick={() => handleDeleteReference(item.id,)}/>
-                        </div>
-                    </div>
-                )}
-            </li>
-        ))}
-    </ul>
-</div>
-                    {/* <ListDisplay list={references} handleDeleteItem={handleDeleteReference} handleItemChange={handleReferenceChange} handleItemActiveChange={handleRefActiveChange}/> */}
                 </>
             )}
         </div>

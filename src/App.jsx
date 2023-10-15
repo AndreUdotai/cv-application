@@ -56,34 +56,54 @@ function App() {
         setSkills(skills.filter((skill) => skill.id !== skillToRemove));
     };
 
-    // Create an edit function for skills array
-    const handleSkillChange = (e, skillToUpdate) => {
-        const nextSkills = skills.map((skill) => {
-            if (skill.id === skillToUpdate) {
-                return {
-                    ...skill,
-                    name: e.target.value,
-                };
-            }
-            return skill;
-        });
-        setSkills(nextSkills);
-    };
+    //An edit function to update the states for the arrays
+    const handleUpdateItem = (e, arrayName, itemToUpdate) => {
+        // Create an object that maps array names to state variables
+        const arrays = {
+            skills: skills,
+            education: education,
+            references: references,
+            workHistory: workHistory,
+        };
 
-    // a function that changes the active status of each list item for updates
-    const handleSkillActiveChange = (skillId, isActive) => {
-        const updatedSkills = skills.map((item) => {
-            if (item.id === skillId) {
-                return { ...item, isActive: isActive };
+        // Find the correct array based on arrayName
+        const currentArray = arrays[arrayName];
+
+        const nextArray = currentArray.map((item) => {
+            if (item.id === itemToUpdate) {
+                return {
+                    ...item,
+                    [e.target.name]: e.target.value,
+                };
             }
             return item;
         });
-        setSkills(updatedSkills);
+        // Set the updated array based on arrayName
+        if (arrayName === 'skills') {
+            setSkills(nextArray);
+        } else if (arrayName === 'references') {
+            setReferences(nextArray);
+        } else if (arrayName === 'education') {
+            setEducation(nextArray);
+        } else if (arrayName === 'workHistory') {
+            setWorkHistory(nextArray);
+        }
     };
 
     // a function that changes the active status of each list item for updates
-    const handleArrayItemActiveChange = (itemId, arrayName, array, isActive) => {
-        const nextArray = array.map((item) => {
+    const handleArrayItemActiveChange = (itemId, arrayName, isActive) => {
+        // Create an object that maps array names to state variables
+        const arrays = {
+            skills: skills,
+            education: education,
+            references: references,
+            workHistory: workHistory,
+        };
+
+        // Find the correct array based on arrayName
+        const currentArray = arrays[arrayName];
+
+        const nextArray = currentArray.map((item) => {
             if (item.id === itemId) {
                 return { ...item, isActive: isActive };
             }
@@ -94,7 +114,11 @@ function App() {
             setSkills(nextArray);
         } else if (arrayName === 'references') {
             setReferences(nextArray);
-        } // Add other conditions as needed
+        }  else if (arrayName === 'education') {
+            setEducation(nextArray);
+        } else if (arrayName === 'workHistory') {
+            setWorkHistory(nextArray);
+        }
     };
 
     const handleAddReference = (e) => {
@@ -110,6 +134,7 @@ function App() {
                     institution: inputArray[8],
                     email: inputArray[9],
                     phone: inputArray[10],
+                    isActive: false,
                 },
             ];
         }
@@ -123,31 +148,6 @@ function App() {
 
     const handleDeleteReference = (refToRemove) => {
         setReferences(references.filter((ref) => ref.id !== refToRemove));
-    };
-
-    // Create an edit function for references array
-    const handleReferenceChange = (e, refToUpdate) => {
-        const nextReferences = references.map((ref) => {
-            if (ref.id === refToUpdate) {
-                return {
-                    ...ref,
-                    [e.target.name]: e.target.value,
-                };
-            }
-            return ref;
-        });
-        setReferences(nextReferences);
-    };
-
-    // a function that changes the active status of each list item for updates
-    const handleRefActiveChange = (refId, isActive) => {
-        const updatedReferences = references.map((ref) => {
-            if (ref.id === refId) {
-                return { ...ref, isActive: isActive };
-            }
-            return ref;
-        });
-        setReferences(updatedReferences);
     };
 
     const handleAddEducation = (e) => {
@@ -165,6 +165,7 @@ function App() {
                     location: inputArray[14],
                     start: inputArray[15],
                     end: inputArray[16],
+                    isActive: false,
                 },
             ];
             inputArray[11] = '';
@@ -224,19 +225,16 @@ function App() {
                 skills={skills}
                 handleAddSkill={handleAddSkill}
                 handleDeleteSkill={handleDeleteSkill}
-                handleSkillChange={handleSkillChange}
-                handleSkillActiveChange={handleSkillActiveChange}
                 references={references}
                 handleAddReference={handleAddReference}
                 handleDeleteReference={handleDeleteReference}
-                handleReferenceChange={handleReferenceChange}
-                handleRefActiveChange={handleRefActiveChange}
                 education={education}
                 handleAddEducation={handleAddEducation}
                 handleDeleteEducation={handleDeleteEducation}
                 workHistory={workHistory}
                 handleAddWork={handleAddWork}
                 handleDeleteWork={handleDeleteWork}
+                handleUpdateItem={handleUpdateItem}
                 handleArrayItemActiveChange={handleArrayItemActiveChange}
             />
             {/* <Preview id={'jsx-template'}> */}

@@ -3,9 +3,8 @@ import { FaAngleDown } from 'react-icons/fa6';
 import { FaAngleUp } from 'react-icons/fa6';
 import Input from './Input';
 import Button from './Button';
-import ListDisplay from './ListDisplay';
-// import { FaTrashCan } from 'react-icons/fa6';
-
+import { FaTrashCan } from 'react-icons/fa6';
+import { FaPencil } from 'react-icons/fa6';
 
 export default function Education({
     inputs,
@@ -13,6 +12,8 @@ export default function Education({
     education,
     handleAddEducation,
     handleDeleteEducation,
+    handleUpdateItem,
+    handleArrayItemActiveChange,
     isActive,
     onToggle,
 }) {
@@ -60,28 +61,133 @@ export default function Education({
                             handleAdd={(e) => handleAddEducation(e)}
                         />
                     </div>
-                    <ListDisplay list={education} handleDeleteItem={handleDeleteEducation}/>
-                    {/* <div className='listDisplay'>
+                    <div className='listDisplay'>
                         <ul>
                             {education.map((item) => (
                                 <li key={item.id}>
-                                    <p>{item.degree}</p>
-                                    <FaTrashCan
-                                        onClick={() =>
-                                            handleDeleteEducation(item.id)
-                                        }
-                                    />
+                                    {item.isActive ? (
+                                        <div>
+                                            <input
+                                                className='input'
+                                                type='text'
+                                                name='degree'
+                                                value={item.degree}
+                                                onChange={(e) =>
+                                                    handleUpdateItem(
+                                                        e,
+                                                        'education',
+                                                        item.id,
+                                                    )
+                                                }
+                                            />
+                                            <input
+                                                className='input'
+                                                type='text'
+                                                name='department'
+                                                value={item.department}
+                                                onChange={(e) =>
+                                                    handleUpdateItem(
+                                                        e,
+                                                        'education',
+                                                        item.id,
+                                                    )
+                                                }
+                                            />
+                                            <input
+                                                className='input'
+                                                type='text'
+                                                name='school'
+                                                value={item.school}
+                                                onChange={(e) =>
+                                                    handleUpdateItem(
+                                                        e,
+                                                        'education',
+                                                        item.id,
+                                                    )
+                                                }
+                                            />
+                                            <input
+                                                className='input'
+                                                type='text'
+                                                name='location'
+                                                value={item.location}
+                                                onChange={(e) =>
+                                                    handleUpdateItem(
+                                                        e,
+                                                        'education',
+                                                        item.id,
+                                                    )
+                                                }
+                                            />
+                                            <input
+                                                className='input'
+                                                type='text'
+                                                name='start'
+                                                value={item.start}
+                                                onChange={(e) =>
+                                                    handleUpdateItem(
+                                                        e,
+                                                        'education',
+                                                        item.id,
+                                                    )
+                                                }
+                                            />
+                                            <input
+                                                className='input'
+                                                type='text'
+                                                name='end'
+                                                value={item.end}
+                                                onChange={(e) =>
+                                                    handleUpdateItem(
+                                                        e,
+                                                        'education',
+                                                        item.id,
+                                                    )
+                                                }
+                                            />
+                                            <button
+                                                className='button'
+                                                type='button'
+                                                onClick={() =>
+                                                    handleArrayItemActiveChange(
+                                                        item.id,
+                                                        'education',
+                                                        false,
+                                                    )
+                                                }
+                                            >
+                                                Close
+                                            </button>
+                                        </div>
+                                    ) : (
+                                        <div className='listItem'>
+                                            <p>{item.school}</p>
+                                            <div>
+                                                <FaPencil
+                                                    className='editIcon'
+                                                    onClick={() =>
+                                                        handleArrayItemActiveChange(
+                                                            item.id,
+                                                            'education',
+                                                            true,
+                                                        )
+                                                    }
+                                                />
+                                                <FaTrashCan
+                                                    className='deleteIcon'
+                                                    onClick={() =>
+                                                        handleDeleteEducation(
+                                                            item.id,
+                                                        )
+                                                    }
+                                                />
+                                            </div>
+                                        </div>
+                                    )}
                                 </li>
                             ))}
                         </ul>
-                    </div> */}
-                    {/* <div className='listDisplay'>
-                        <ul>
-                            {education.map((item) => (
-                                <li key={item.id}>{item.degree}</li>
-                            ))}
-                        </ul>
-                    </div> */}
+                    </div>
                 </>
             )}
         </div>

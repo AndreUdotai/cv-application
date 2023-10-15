@@ -14,19 +14,20 @@ export default function Form({
     skills,
     handleAddSkill,
     handleDeleteSkill,
-    handleSkillChange,
-    handleSkillActiveChange,
+    // handleSkillChange,
+    // handleSkillActiveChange,
     references,
     handleAddReference,
     handleDeleteReference,
-    handleReferenceChange,
-    handleRefActiveChange,
+    // handleReferenceChange,
+    // handleRefActiveChange,
     education,
     handleAddEducation,
     handleDeleteEducation,
     workHistory,
     handleAddWork,
     handleDeleteWork,
+    handleUpdateItem,
     handleArrayItemActiveChange,
 }) {
     const [isActive1, setIsActive1] = useState(false);
@@ -55,6 +56,8 @@ export default function Form({
                 workHistory={workHistory}
                 handleAddWork={handleAddWork}
                 handleDeleteWork={handleDeleteWork}
+                handleUpdateItem={handleUpdateItem}
+                handleArrayItemActiveChange={handleArrayItemActiveChange}
                 isActive={isActive2}
                 onToggle={() => setIsActive2(!isActive2)}
             />
@@ -64,6 +67,8 @@ export default function Form({
                 education={education}
                 handleAddEducation={handleAddEducation}
                 handleDeleteEducation={handleDeleteEducation}
+                handleUpdateItem={handleUpdateItem}
+                handleArrayItemActiveChange={handleArrayItemActiveChange}
                 isActive={isActive3}
                 onToggle={() => setIsActive3(!isActive3)}
             />
@@ -73,8 +78,7 @@ export default function Form({
                 handleInput={handleInput}
                 handleAddSkill={handleAddSkill}
                 handleDeleteSkill={handleDeleteSkill}
-                handleSkillChange={handleSkillChange}
-                handleSkillActiveChange={handleSkillActiveChange}
+                handleUpdateItem={handleUpdateItem}
                 handleArrayItemActiveChange={handleArrayItemActiveChange}
                 isActive={isActive4}
                 onToggle={() => setIsActive4(!isActive4)}
@@ -85,8 +89,7 @@ export default function Form({
                 references={references}
                 handleAddReference={handleAddReference}
                 handleDeleteReference={handleDeleteReference}
-                handleReferenceChange={handleReferenceChange}
-                handleRefActiveChange={handleRefActiveChange}
+                handleUpdateItem={handleUpdateItem}
                 handleArrayItemActiveChange={handleArrayItemActiveChange}
                 isActive={isActive5}
                 onToggle={() => setIsActive5(!isActive5)}

@@ -4,9 +4,9 @@ import { FaAngleDown } from 'react-icons/fa6';
 import { FaAngleUp } from 'react-icons/fa6';
 import Input from './Input';
 import Button from './Button';
-import ListDisplay from './ListDisplay';
-// import { FaTrashCan } from 'react-icons/fa6';
-// import { FaPencil } from 'react-icons/fa6';
+// import ListDisplay from './ListDisplay';
+import { FaTrashCan } from 'react-icons/fa6';
+import { FaPencil } from 'react-icons/fa6';
 
 export default function Skills({
     inputs,
@@ -14,8 +14,10 @@ export default function Skills({
     skills,
     handleAddSkill,
     handleDeleteSkill,
-    handleSkillChange,
-    handleSkillActiveChange,
+    // handleSkillChange,
+    // handleSkillActiveChange,
+    handleUpdateItem,
+    handleArrayItemActiveChange,
     isActive,
     onToggle,
 }) {
@@ -37,7 +39,7 @@ export default function Skills({
                             handleAdd={(e) => handleAddSkill(e)}
                         />
                     </div>
-                    {/* <div className='listDisplay'>
+                    <div className='listDisplay'>
                         <ul>
                             {skills.map((item) => (
                                 <li key={item.id}>
@@ -46,13 +48,15 @@ export default function Skills({
                                             <input
                                                 className='input'
                                                 type='text'
+                                                name='name'
                                                 value={item.name}
-                                                onChange={(e) => handleSkillChange(e, item.id)}
+                                                // onChange={(e) => handleSkillChange(e, item.id)}
+                                                onChange={(e) => handleUpdateItem(e, 'skills', item.id)}
                                             />
                                             <button
                                                 className='button'
                                                 type='button'
-                                                onClick={() => handleSkillActiveChange(item.id, false)}
+                                                onClick={() => handleArrayItemActiveChange(item.id, 'skills', false)}
                                             >
                                                 Close
                                             </button>
@@ -61,7 +65,7 @@ export default function Skills({
                                         <div className='listItem'>
                                             <p>{item.name}</p>
                                             <div>
-                                                <FaPencil className='editIcon' onClick={() => handleSkillActiveChange(item.id, true)}/>
+                                                <FaPencil className='editIcon' onClick={() => handleArrayItemActiveChange(item.id, 'skills', true)}/>
                                                 <FaTrashCan className='deleteIcon' onClick={() => handleDeleteSkill(item.id,)}/>
                                             </div>
                                         </div>
@@ -69,8 +73,8 @@ export default function Skills({
                                 </li>
                             ))}
                         </ul>
-                    </div> */}
-                    <ListDisplay list={skills} handleDeleteItem={handleDeleteSkill} handleItemChange={handleSkillChange} handleItemActiveChange={handleSkillActiveChange} />
+                    </div>
+                    {/* <ListDisplay list={skills} handleDeleteItem={handleDeleteSkill} handleItemChange={handleSkillChange} handleItemActiveChange={handleSkillActiveChange} /> */}
                 </>
             )}
         </div>
