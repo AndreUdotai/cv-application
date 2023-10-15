@@ -1,10 +1,8 @@
-// import { useState } from 'react';
 /* eslint-disable react/prop-types */
 import { FaAngleDown } from 'react-icons/fa6';
 import { FaAngleUp } from 'react-icons/fa6';
 import Input from './Input';
 import Button from './Button';
-// import ListDisplay from './ListDisplay';
 import { FaTrashCan } from 'react-icons/fa6';
 import { FaPencil } from 'react-icons/fa6';
 
@@ -14,8 +12,6 @@ export default function Skills({
     skills,
     handleAddSkill,
     handleDeleteSkill,
-    // handleSkillChange,
-    // handleSkillActiveChange,
     handleUpdateItem,
     handleArrayItemActiveChange,
     isActive,
@@ -50,7 +46,6 @@ export default function Skills({
                                                 type='text'
                                                 name='name'
                                                 value={item.name}
-                                                // onChange={(e) => handleSkillChange(e, item.id)}
                                                 onChange={(e) => handleUpdateItem(e, 'skills', item.id)}
                                             />
                                             <button
@@ -74,7 +69,6 @@ export default function Skills({
                             ))}
                         </ul>
                     </div>
-                    {/* <ListDisplay list={skills} handleDeleteItem={handleDeleteSkill} handleItemChange={handleSkillChange} handleItemActiveChange={handleSkillActiveChange} /> */}
                 </>
             )}
         </div>

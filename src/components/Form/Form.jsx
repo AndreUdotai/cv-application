@@ -6,7 +6,6 @@ import EmploymentHistory from './EmploymentHistory';
 import Education from './Education';
 import Skills from './Skills';
 import References from './References';
-// import { FaXmark } from 'react-icons/fa6';
 
 export default function Form({
     inputs,
@@ -14,13 +13,9 @@ export default function Form({
     skills,
     handleAddSkill,
     handleDeleteSkill,
-    // handleSkillChange,
-    // handleSkillActiveChange,
     references,
     handleAddReference,
     handleDeleteReference,
-    // handleReferenceChange,
-    // handleRefActiveChange,
     education,
     handleAddEducation,
     handleDeleteEducation,
