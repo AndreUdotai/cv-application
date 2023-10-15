@@ -27,6 +27,7 @@ export default function Form({
     workHistory,
     handleAddWork,
     handleDeleteWork,
+    handleArrayItemActiveChange,
 }) {
     const [isActive1, setIsActive1] = useState(false);
     const [isActive2, setIsActive2] = useState(false);
@@ -74,6 +75,7 @@ export default function Form({
                 handleDeleteSkill={handleDeleteSkill}
                 handleSkillChange={handleSkillChange}
                 handleSkillActiveChange={handleSkillActiveChange}
+                handleArrayItemActiveChange={handleArrayItemActiveChange}
                 isActive={isActive4}
                 onToggle={() => setIsActive4(!isActive4)}
             />
@@ -85,6 +87,7 @@ export default function Form({
                 handleDeleteReference={handleDeleteReference}
                 handleReferenceChange={handleReferenceChange}
                 handleRefActiveChange={handleRefActiveChange}
+                handleArrayItemActiveChange={handleArrayItemActiveChange}
                 isActive={isActive5}
                 onToggle={() => setIsActive5(!isActive5)}
             />

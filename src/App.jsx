@@ -81,21 +81,21 @@ function App() {
         setSkills(updatedSkills);
     };
 
-    // // a function that changes the active status of each list item for updates
-    // const handleArrayItemActiveChange = (itemId, arrayName, isActive) => {
-    //     const nextArray = arrayName.map((item) => {
-    //         if (item.id === itemId) {
-    //             return { ...arrayName, isActive: isActive };
-    //         }
-    //         return item;
-    //     });
-    //     // Set the updated array based on arrayName
-    //     if (arrayName === 'skills') {
-    //         setSkills(nextArray);
-    //     } else if (arrayName === 'references') {
-    //         setReferences(nextArray);
-    //     } // Add other conditions as needed
-    // };
+    // a function that changes the active status of each list item for updates
+    const handleArrayItemActiveChange = (itemId, arrayName, array, isActive) => {
+        const nextArray = array.map((item) => {
+            if (item.id === itemId) {
+                return { ...item, isActive: isActive };
+            }
+            return item;
+        });
+        // Set the updated array based on arrayName
+        if (arrayName === 'skills') {
+            setSkills(nextArray);
+        } else if (arrayName === 'references') {
+            setReferences(nextArray);
+        } // Add other conditions as needed
+    };
 
     const handleAddReference = (e) => {
         e.preventDefault();
@@ -125,7 +125,7 @@ function App() {
         setReferences(references.filter((ref) => ref.id !== refToRemove));
     };
 
-    // Create an edit function for skills array
+    // Create an edit function for references array
     const handleReferenceChange = (e, refToUpdate) => {
         const nextReferences = references.map((ref) => {
             if (ref.id === refToUpdate) {
@@ -237,6 +237,7 @@ function App() {
                 workHistory={workHistory}
                 handleAddWork={handleAddWork}
                 handleDeleteWork={handleDeleteWork}
+                handleArrayItemActiveChange={handleArrayItemActiveChange}
             />
             {/* <Preview id={'jsx-template'}> */}
             <Cv

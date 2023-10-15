@@ -14,7 +14,8 @@ export default function References({
     handleAddReference,
     handleDeleteReference,
     handleReferenceChange,
-    handleRefActiveChange,
+    // handleRefActiveChange,
+    handleArrayItemActiveChange,
     isActive,
     onToggle,
 }) {
@@ -89,7 +90,8 @@ export default function References({
                         <button
                             className='button'
                             type='button'
-                            onClick={() => handleRefActiveChange(item.id, false)}
+                            // onClick={() => handleRefActiveChange(item.id, false)}
+                            onClick={() => handleArrayItemActiveChange(item.id, 'references', references, false)}
                         >
                             Close
                         </button>
@@ -98,7 +100,8 @@ export default function References({
                     <div className='listItem'>
                         <p>{item.name}</p>
                         <div>
-                            <FaPencil className='editIcon' onClick={() => handleRefActiveChange(item.id, true)}/>
+                            {/* <FaPencil className='editIcon' onClick={() => handleRefActiveChange(item.id, true)}/> */}
+                            <FaPencil className='editIcon' onClick={() => handleArrayItemActiveChange(item.id, 'references', references, true)}/>
                             <FaTrashCan className='deleteIcon' onClick={() => handleDeleteReference(item.id,)}/>
                         </div>
                     </div>
