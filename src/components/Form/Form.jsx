@@ -19,6 +19,8 @@ export default function Form({
     references,
     handleAddReference,
     handleDeleteReference,
+    handleReferenceChange,
+    handleRefActiveChange,
     education,
     handleAddEducation,
     handleDeleteEducation,
@@ -81,6 +83,8 @@ export default function Form({
                 references={references}
                 handleAddReference={handleAddReference}
                 handleDeleteReference={handleDeleteReference}
+                handleReferenceChange={handleReferenceChange}
+                handleRefActiveChange={handleRefActiveChange}
                 isActive={isActive5}
                 onToggle={() => setIsActive5(!isActive5)}
             />

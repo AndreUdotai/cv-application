@@ -3,7 +3,9 @@ import { FaAngleDown } from 'react-icons/fa6';
 import { FaAngleUp } from 'react-icons/fa6';
 import Input from './Input';
 import Button from './Button';
-import ListDisplay from './ListDisplay';
+// import ListDisplay from './ListDisplay';
+import { FaTrashCan } from 'react-icons/fa6';
+import { FaPencil } from 'react-icons/fa6';
 
 export default function References({
     inputs,
@@ -11,6 +13,8 @@ export default function References({
     references,
     handleAddReference,
     handleDeleteReference,
+    handleReferenceChange,
+    handleRefActiveChange,
     isActive,
     onToggle,
 }) {
@@ -29,17 +33,17 @@ export default function References({
                             handleInput={(e) => handleInput(7, e.target.value)}
                         />
                         <Input
-                            label={'Full name'}
+                            label={'Institution'}
                             value={inputs[8]}
                             handleInput={(e) => handleInput(8, e.target.value)}
                         />
                         <Input
-                            label={'Full name'}
+                            label={'Email'}
                             value={inputs[9]}
                             handleInput={(e) => handleInput(9, e.target.value)}
                         />
                         <Input
-                            label={'Full name'}
+                            label={'Phone Number'}
                             value={inputs[10]}
                             handleInput={(e) => handleInput(10, e.target.value)}
                         />
@@ -48,7 +52,62 @@ export default function References({
                             handleAdd={(e) => handleAddReference(e)}
                         />
                     </div>
-                    <ListDisplay list={references} handleDeleteItem={handleDeleteReference}/>
+                    <div className='listDisplay'>
+    <ul>
+        {references.map((item) => (
+            <li key={item.id}>
+                {item.isActive ? (
+                    <div>
+                        <input
+                            className='input'
+                            type='text'
+                            name='name'
+                            value={item.name}
+                            onChange={(e) => handleReferenceChange(e, item.id)}
+                        />
+                        <input
+                            className='input'
+                            type='text'
+                            name='institution'
+                            value={item.institution}
+                            onChange={(e) => handleReferenceChange(e, item.id)}
+                        />
+                        <input
+                            className='input'
+                            type='text'
+                            name='email'
+                            value={item.email}
+                            onChange={(e) => handleReferenceChange(e, item.id)}
+                        />
+                        <input
+                            className='input'
+                            type='text'
+                            name='phone'
+                            value={item.phone}
+                            onChange={(e) => handleReferenceChange(e, item.id)}
+                        />
+                        <button
+                            className='button'
+                            type='button'
+                            onClick={() => handleRefActiveChange(item.id, false)}
+                        >
+                            Close
+                        </button>
+                    </div>
+                ) : (
+                    <div className='listItem'>
+                        <p>{item.name}</p>
+                        <div>
+                            <FaPencil className='editIcon' onClick={() => handleRefActiveChange(item.id, true)}/>
+                            <FaTrashCan className='deleteIcon' onClick={() => handleDeleteReference(item.id,)}/>
+                        </div>
+                    </div>
+                )}
+            </li>
+        ))}
+    </ul>
+</div>
+                    {/* <ListDisplay list={references} handleDeleteItem={handleDeleteReference} handleItemChange={handleReferenceChange} handleItemActiveChange={handleRefActiveChange}/> */}
                 </>
             )}
         </div>

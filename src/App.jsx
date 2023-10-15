@@ -41,7 +41,10 @@ function App() {
         let nextSkills;
         const inputArray = inputs.slice();
         if (inputArray[6]) {
-            nextSkills = [...skills, { id: uuidv4(), name: inputArray[6], isActive: false }]; // isActive is added to track the active state for each skill
+            nextSkills = [
+                ...skills,
+                { id: uuidv4(), name: inputArray[6], isActive: false },
+            ]; // isActive is added to track the active state for each skill
         }
         inputArray[6] = '';
         setInputs(inputArray);
@@ -50,26 +53,24 @@ function App() {
 
     // Create a delete function for skills array
     const handleDeleteSkill = (skillToRemove) => {
-        setSkills(
-            skills.filter(skill => skill.id !== skillToRemove )
-        )
-    }
+        setSkills(skills.filter((skill) => skill.id !== skillToRemove));
+    };
 
     // Create an edit function for skills array
     const handleSkillChange = (e, skillToUpdate) => {
         const nextSkills = skills.map((skill) => {
-            if(skill.id === skillToUpdate){
+            if (skill.id === skillToUpdate) {
                 return {
                     ...skill,
-                    name: e.target.value
-                }
+                    name: e.target.value,
+                };
             }
             return skill;
-        })
+        });
         setSkills(nextSkills);
-    }
+    };
 
-    // 
+    // a function that changes the active status of each list item for updates
     const handleSkillActiveChange = (skillId, isActive) => {
         const updatedSkills = skills.map((item) => {
             if (item.id === skillId) {
@@ -79,6 +80,22 @@ function App() {
         });
         setSkills(updatedSkills);
     };
+
+    // // a function that changes the active status of each list item for updates
+    // const handleArrayItemActiveChange = (itemId, arrayName, isActive) => {
+    //     const nextArray = arrayName.map((item) => {
+    //         if (item.id === itemId) {
+    //             return { ...arrayName, isActive: isActive };
+    //         }
+    //         return item;
+    //     });
+    //     // Set the updated array based on arrayName
+    //     if (arrayName === 'skills') {
+    //         setSkills(nextArray);
+    //     } else if (arrayName === 'references') {
+    //         setReferences(nextArray);
+    //     } // Add other conditions as needed
+    // };
 
     const handleAddReference = (e) => {
         e.preventDefault();
@@ -105,10 +122,33 @@ function App() {
     };
 
     const handleDeleteReference = (refToRemove) => {
-        setReferences(
-            references.filter(ref => ref.id !== refToRemove)
-        )
-    }
+        setReferences(references.filter((ref) => ref.id !== refToRemove));
+    };
+
+    // Create an edit function for skills array
+    const handleReferenceChange = (e, refToUpdate) => {
+        const nextReferences = references.map((ref) => {
+            if (ref.id === refToUpdate) {
+                return {
+                    ...ref,
+                    [e.target.name]: e.target.value,
+                };
+            }
+            return ref;
+        });
+        setReferences(nextReferences);
+    };
+
+    // a function that changes the active status of each list item for updates
+    const handleRefActiveChange = (refId, isActive) => {
+        const updatedReferences = references.map((ref) => {
+            if (ref.id === refId) {
+                return { ...ref, isActive: isActive };
+            }
+            return ref;
+        });
+        setReferences(updatedReferences);
+    };
 
     const handleAddEducation = (e) => {
         e.preventDefault();
@@ -140,9 +180,9 @@ function App() {
 
     const handleDeleteEducation = (eduToRemove) => {
         setEducation(
-            education.filter(education => education.id !== eduToRemove)
-        )
-    }
+            education.filter((education) => education.id !== eduToRemove),
+        );
+    };
 
     const handleAddWork = (e) => {
         e.preventDefault();
@@ -173,10 +213,8 @@ function App() {
     };
 
     const handleDeleteWork = (workToRemove) => {
-        setWorkHistory(
-            workHistory.filter(work => work.id !== workToRemove)
-        )
-    }
+        setWorkHistory(workHistory.filter((work) => work.id !== workToRemove));
+    };
 
     return (
         <div className='app'>
@@ -191,6 +229,8 @@ function App() {
                 references={references}
                 handleAddReference={handleAddReference}
                 handleDeleteReference={handleDeleteReference}
+                handleReferenceChange={handleReferenceChange}
+                handleRefActiveChange={handleRefActiveChange}
                 education={education}
                 handleAddEducation={handleAddEducation}
                 handleDeleteEducation={handleDeleteEducation}

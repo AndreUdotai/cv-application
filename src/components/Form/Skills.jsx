@@ -4,9 +4,9 @@ import { FaAngleDown } from 'react-icons/fa6';
 import { FaAngleUp } from 'react-icons/fa6';
 import Input from './Input';
 import Button from './Button';
-// import ListDisplay from './ListDisplay';
-import { FaTrashCan } from 'react-icons/fa6';
-import { FaPencil } from 'react-icons/fa6';
+import ListDisplay from './ListDisplay';
+// import { FaTrashCan } from 'react-icons/fa6';
+// import { FaPencil } from 'react-icons/fa6';
 
 export default function Skills({
     inputs,
@@ -19,8 +19,6 @@ export default function Skills({
     isActive,
     onToggle,
 }) {
-    // const [isActive1, setIsActive1] = useState(false);
-
     return (
         <div className='form'>
             <div className='formHeader' onClick={onToggle}>
@@ -39,7 +37,7 @@ export default function Skills({
                             handleAdd={(e) => handleAddSkill(e)}
                         />
                     </div>
-                    <div className='listDisplay'>
+                    {/* <div className='listDisplay'>
                         <ul>
                             {skills.map((item) => (
                                 <li key={item.id}>
@@ -71,8 +69,8 @@ export default function Skills({
                                 </li>
                             ))}
                         </ul>
-                    </div>
-                    {/* <ListDisplay list={skills} handleDeleteItem={handleDeleteSkill} /> */}
+                    </div> */}
+                    <ListDisplay list={skills} handleDeleteItem={handleDeleteSkill} handleItemChange={handleSkillChange} handleItemActiveChange={handleSkillActiveChange} />
                 </>
             )}
         </div>
