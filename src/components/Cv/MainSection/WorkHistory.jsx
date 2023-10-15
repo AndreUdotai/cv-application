@@ -31,11 +31,7 @@ function WorkExperience({ workHistory }) {
                                 public offering (IPO), securing $100 million in
                                 capital and achieving a market capitalization of
                                 $1 billion within the first year of going
-                                public. This milestone marked a significant
-                                growth phase for the company, attracting new
-                                investors, expanding market reach, and
-                                solidifying our position as a key player in the
-                                industry.
+                                public.s
                             </li>
                         </ul>
                     </>

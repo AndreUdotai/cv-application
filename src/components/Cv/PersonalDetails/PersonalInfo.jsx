@@ -24,7 +24,7 @@ function Profile({ titleInput, profileInput }) {
             <p>
                 {profileInput
                     ? profileInput
-                    : 'Dedicated and results-driven Business Manager with over 10 years of experience in leading cross-functional teams to achieve business growth and profitability. Proven track record in strategic planning, financial management, and market expansion. Strong communication and negotiation skills. Adept at analyzing data and making informed decisions to drive organizational success.'}
+                    : 'Dedicated and results-driven Business Manager with over 10 years of experience in leading cross-functional teams to achieve business growth and profitability. Proven track record in strategic planning, financial management, and market expansion. Strong communication and negotiation skills.'}
             </p>
         </div>
     );
